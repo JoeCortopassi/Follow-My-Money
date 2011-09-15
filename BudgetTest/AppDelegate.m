@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AddItemViewController.h"
+#import "ItemListViewController.h"
+#import "CategoryTotalViewController.h"
 
 @implementation AppDelegate
 
@@ -15,11 +18,33 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+@synthesize addItemViewController, itemListViewController, categoryTotalViewController;
+@synthesize tabBarController,itemListNavigationController, categoryTotalsNavigationController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.addItemViewController = [[AddItemViewController alloc] init];
+    self.addItemViewController.managedObjectContext = self.managedObjectContext;
+    self.addItemViewController.title = @"Add";
+    
+    self.itemListViewController = [[ItemListViewController alloc] init];
+    self.itemListViewController.managedObjectContext = self.managedObjectContext;
+    self.itemListViewController.title = @"List";
+    self.itemListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.itemListViewController];
+    
+    self.categoryTotalViewController = [[CategoryTotalViewController alloc] init];
+    self.categoryTotalViewController.managedObjectContext = self.managedObjectContext;
+    self.categoryTotalViewController.title = @"Totals";
+    self.categoryTotalsNavigationController = [[UINavigationController alloc] initWithRootViewController:self.categoryTotalViewController];
+    
+    NSArray *tabBarViews = [[NSArray alloc] initWithObjects:self.addItemViewController, self.itemListNavigationController, self.categoryTotalsNavigationController, nil];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = tabBarViews;
+    
+    [self.window addSubview:self.tabBarController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
