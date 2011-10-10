@@ -10,6 +10,8 @@
 #import "ItemDateViewController.h"
 #import "CategoryComboBoxController.h"
 
+@class BudgetItems;
+
 @interface AddItemViewController : UIViewController <ItemDateDelegate,CategoryComboBoxDelegate>
 {
     IBOutlet UILabel *titleLabel;
@@ -18,6 +20,7 @@
     IBOutlet UITextField *item;
     IBOutlet UITextField *category;
     NSManagedObjectContext *managedObjectContext;
+    NSManagedObject *budgetItem;
     ItemDateViewController *itemDateViewController;
     CategoryComboBoxController *categoryComboBoxController;
 }
@@ -28,12 +31,14 @@
 @property(retain) IBOutlet UITextField *item;
 @property(retain) IBOutlet UITextField *category;
 @property(retain) NSManagedObjectContext *managedObjectContext;
+@property(retain) NSManagedObject *budgetItem;
 @property(retain) ItemDateViewController *itemDateViewController;
 @property(retain) CategoryComboBoxController *categoryComboBoxViewController;
 
+-(id)initWithBudgetItem:(BudgetItems *)newBudgetItem;
 -(IBAction)saveBudgetItem;
 -(IBAction)hideKeyboard;
--(void)setPickersDate:(NSDate *)newDate;
+-(void)setPickersDate:(NSDate *)newDate forField:(NSString *)newFieldToSet;
 -(IBAction)showCategoryComboBox;
 -(void)setCategoryFromComboBox:(NSString *)string;
 

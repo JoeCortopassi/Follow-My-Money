@@ -13,7 +13,7 @@
 @implementation AddItemViewController
 
 @synthesize titleLabel,date,item,amount,category;
-@synthesize managedObjectContext;
+@synthesize managedObjectContext, budgetItem;
 @synthesize itemDateViewController,categoryComboBoxViewController;
 
 
@@ -22,7 +22,7 @@
     self.category.text = string;
 }
 
--(void)setPickersDate:(NSDate *)newDate
+-(void)setPickersDate:(NSDate *)newDate forField:(NSString *)newFieldToSet
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -48,24 +48,29 @@
                               category.text];
     [fetchRequest setPredicate:predicate];
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    NSLog(@"%d", fetchedObjects.count);
+    
     if ([fetchedObjects count] == 0) {
-        NSLog(@"aaa");
         Categories *categories = [NSEntityDescription insertNewObjectForEntityForName:@"Categories" inManagedObjectContext:self.managedObjectContext];
-        NSLog(@"%@", categories);
         categories.name = category.text;
-        NSLog(@"%@", categories);
         budgetItems.category = categories;
     } else {
         budgetItems.category = [fetchedObjects objectAtIndex:0];
     }
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat: @"MM/dd/yyyy"];
     
-    
-    budgetItems.date = date.text;
-    budgetItems.amount = amount.text;
+    budgetItems.date = [dateFormatter dateFromString:date.text];
+    budgetItems.amount = [amount.text doubleValue];
     budgetItems.item = item.text;
         
+    if (self.budgetItem) {
+        [self.managedObjectContext deleteObject:self.budgetItem];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    
     // Commit the change.
     if (![self.managedObjectContext save:&error]) {
         // Handle the error.
@@ -118,6 +123,7 @@
 -(IBAction)showDatePicker
 {
     self.itemDateViewController = [[ItemDateViewController alloc] init];
+    self.itemDateViewController.fieldToSet = @"Item";
     self.itemDateViewController.delegate = self;
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -135,6 +141,18 @@
     self.categoryComboBoxViewController.delegate = self;
     [self presentModalViewController:self.categoryComboBoxViewController animated:YES];
 }
+
+
+- (id)initWithBudgetItem:(BudgetItems *)newBudgetItem
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        self.budgetItem = newBudgetItem;
+    }
+    return self;
+}
+
 
 
 #pragma mark - Default methods
@@ -167,7 +185,16 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setDateFormat: @"M/d/Y"];
     
-    self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
+    
+    if ( self.budgetItem ) {
+        self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[self.budgetItem valueForKey:@"date"]]];
+        self.amount.text = [NSString stringWithFormat:@"%0.2f", [[self.budgetItem valueForKey:@"amount"] doubleValue]];
+        self.item.text = [self.budgetItem valueForKey:@"item"];
+        self.category.text = [[self.budgetItem valueForKey:@"category"] valueForKey:@"name"];
+        self.titleLabel.text = @"Edit Item";
+    } else {
+        self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
+    }
 }
 
 - (void)viewDidUnload

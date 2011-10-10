@@ -10,6 +10,7 @@
 #import "AddItemViewController.h"
 #import "ItemListViewController.h"
 #import "CategoryTotalViewController.h"
+#import "SettingsViewController.h"
 
 @implementation AppDelegate
 
@@ -19,7 +20,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 @synthesize addItemViewController, itemListViewController, categoryTotalViewController;
-@synthesize tabBarController,itemListNavigationController, categoryTotalsNavigationController;
+@synthesize tabBarController,itemListNavigationController, categoryTotalsNavigationController, settingsNavigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -39,7 +40,12 @@
     self.categoryTotalViewController.title = @"Totals";
     self.categoryTotalsNavigationController = [[UINavigationController alloc] initWithRootViewController:self.categoryTotalViewController];
     
-    NSArray *tabBarViews = [[NSArray alloc] initWithObjects:self.addItemViewController, self.itemListNavigationController, self.categoryTotalsNavigationController, nil];
+    SettingsViewController *settingsViewController = [[SettingsViewController alloc] init];
+    settingsViewController.managedObjectContext = self.managedObjectContext;
+    settingsViewController.title = @"Settings";
+    self.settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+    
+    NSArray *tabBarViews = [[NSArray alloc] initWithObjects:self.addItemViewController, self.itemListNavigationController, self.categoryTotalsNavigationController, self.settingsNavigationController, nil];
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = tabBarViews;
@@ -153,7 +159,6 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BudgetTest.sqlite"];
-    
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])

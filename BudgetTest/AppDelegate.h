@@ -19,9 +19,11 @@
 @property(retain) UITabBarController *tabBarController;
 @property(retain) UINavigationController *itemListNavigationController;
 @property(retain) UINavigationController *categoryTotalsNavigationController;
+@property(retain) UINavigationController *settingsNavigationController;
 @property(retain) AddItemViewController *addItemViewController;
 @property(retain) ItemListViewController *itemListViewController;
 @property(retain) CategoryTotalViewController *categoryTotalViewController;
+
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

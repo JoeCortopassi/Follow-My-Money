@@ -8,6 +8,7 @@
 
 #import "CategoryTotalViewController.h"
 #import "BudgetItems.h"
+#import "Dates.h"
 
 @implementation CategoryTotalViewController
 
@@ -54,10 +55,22 @@
 {
     [super viewWillAppear:animated];
     
+    Dates *dates = [[Dates alloc] init];
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Categories"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(ANY items.amount > 0.00) AND (ANY items.date >= %@) AND (ANY items.date < %@)", [dates periodStartDate], [dates periodEndDate]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                                   ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
     
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
@@ -72,7 +85,8 @@
     NSEntityDescription *newEntity;
     NSPredicate *newPredicate;
     NSArray *newFetchedObject;
-    double total;
+    double total = 0;
+    double grandTotal = 0;
     
     for (int i = 0; i < self.categories.count; i++) {
         newFetchRequest = [[NSFetchRequest alloc] init];
@@ -80,9 +94,10 @@
                                 inManagedObjectContext:self.managedObjectContext];
         [newFetchRequest setEntity:newEntity];
         
-        newPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"ANY category.name = '%@'", [[self.categories objectAtIndex:i] valueForKey:@"name"]]];
-        
+        newPredicate = [NSPredicate predicateWithFormat:@"(ANY category.name = %@) AND (date >= %@) AND (date < %@) AND amount > 0", [[self.categories objectAtIndex:i] valueForKey:@"name"],
+                        [dates periodStartDate], [dates periodEndDate]];
         [newFetchRequest setPredicate:newPredicate];
+        
         
         newFetchedObject = [self.managedObjectContext executeFetchRequest:newFetchRequest error:&error];
         if (newFetchedObject == nil) {
@@ -96,10 +111,13 @@
         }
         
         [self.categoryTotals addObject:[NSNumber numberWithDouble:total]];
+        grandTotal += total;
     }    
+    NSMutableDictionary *grandTotalName = [[NSMutableDictionary alloc] init];
+    [grandTotalName  setValue:@"Grand Total" forKey:@"name"];
+    [self.categories insertObject:grandTotalName atIndex:0];
     
-    
-    
+    [self.categoryTotals insertObject:[NSNumber numberWithDouble:grandTotal] atIndex:0];
     [self.tableView reloadData];
 
 }
@@ -147,7 +165,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
     // Configure the cell...
     //cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.categoryTotals objectAtIndex:indexPath.row] valueForKey:@"amount"]];
     cell.textLabel.text = [NSString stringWithFormat:@"%@  -  $%0.2f", [[self.categories objectAtIndex:indexPath.row] valueForKey:@"name"], [[self.categoryTotals objectAtIndex:indexPath.row] doubleValue]];

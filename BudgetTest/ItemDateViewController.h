@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol ItemDateDelegate
--(void)setPickersDate:(NSDate *)newDate;
+-(void)setPickersDate:(NSDate *)newDate forField:(NSString *)fieldToSet;
 @end
 
 @interface ItemDateViewController : UIViewController
@@ -17,11 +17,13 @@
     IBOutlet UIDatePicker *datePicker;
     NSDate *date;
     id <ItemDateDelegate> delegate;
+    NSString *fieldToSet;
 }
 
 @property(retain) IBOutlet UIDatePicker *datePicker;
 @property(retain) NSDate *date;
 @property(retain) id <ItemDateDelegate> delegate;
+@property(retain) NSString *fieldToSet;
 
 -(IBAction)dateSelected;
 

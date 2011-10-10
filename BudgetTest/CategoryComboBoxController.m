@@ -24,7 +24,7 @@
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"name LIKE[c] '%@*'",self.input.text]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name LIKE[c] %@",[NSString stringWithFormat:@"%@*",self.input.text]];
     
     [fetchRequest setPredicate:predicate];
     NSError *error = nil;

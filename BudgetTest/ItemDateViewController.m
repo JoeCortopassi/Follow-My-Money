@@ -13,15 +13,15 @@
 @synthesize datePicker;
 @synthesize date;
 @synthesize delegate;
+@synthesize fieldToSet;
 
 -(IBAction)dateSelected
 {
     self.date = self.datePicker.date;
-    [[self delegate] setPickersDate:self.datePicker.date];
+    [[self delegate] setPickersDate:self.datePicker.date forField:self.fieldToSet];
     
     [self dismissModalViewControllerAnimated:YES];
 }
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

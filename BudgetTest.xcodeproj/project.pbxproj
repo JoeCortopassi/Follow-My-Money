@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730495F8143C9F6B000D886A /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 730495F1143C9F6B000D886A /* CHCSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		730495F9143C9F6B000D886A /* CHCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 730495F3143C9F6B000D886A /* CHCSVWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		730495FA143C9F6B000D886A /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 730495F5143C9F6B000D886A /* NSArray+CHCSVAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		730495FB143C9F6B000D886A /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 730495F7143C9F6B000D886A /* NSString+CHCSVAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		731F30C6141FA16C00E414FD /* CategoryTotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731F30C4141FA16C00E414FD /* CategoryTotalViewController.m */; };
 		731F30C7141FA16C00E414FD /* CategoryTotalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 731F30C5141FA16C00E414FD /* CategoryTotalViewController.xib */; };
+		731F30CB14223F3400E414FD /* BudgetItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 731F30CA14223F3400E414FD /* BudgetItems.m */; };
+		731F30CE1422426C00E414FD /* Dates.m in Sources */ = {isa = PBXBuildFile; fileRef = 731F30CD1422426B00E414FD /* Dates.m */; };
 		73738AFE141482FE0015D6D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738AFD141482FE0015D6D7 /* UIKit.framework */; };
 		73738B00141482FE0015D6D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738AFF141482FE0015D6D7 /* Foundation.framework */; };
 		73738B02141482FE0015D6D7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738B01141482FE0015D6D7 /* CoreData.framework */; };
@@ -28,10 +34,13 @@
 		73738B3C141489990015D6D7 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73738B3A141489990015D6D7 /* ItemListViewController.xib */; };
 		73738B4F1415DE2F0015D6D7 /* ItemDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B4D1415DE2D0015D6D7 /* ItemDateViewController.m */; };
 		73738B501415DE2F0015D6D7 /* ItemDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73738B4E1415DE2E0015D6D7 /* ItemDateViewController.xib */; };
+		7389AE251431643A00B97E0E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7389AE231431643A00B97E0E /* SettingsViewController.m */; };
+		7389AE261431643A00B97E0E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7389AE241431643A00B97E0E /* SettingsViewController.xib */; };
 		73AFC06C141BCD4200AB9DBE /* CategoryComboBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AFC06A141BCD4200AB9DBE /* CategoryComboBoxController.m */; };
 		73AFC06D141BCD4200AB9DBE /* CategoryComboBoxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AFC06B141BCD4200AB9DBE /* CategoryComboBoxController.xib */; };
-		73BC118E14186C6300F6B689 /* BudgetItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC118D14186C6300F6B689 /* BudgetItems.m */; };
+		73B20DA31442BE7900A6904A /* Money57.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B20DA21442BE7900A6904A /* Money57.png */; };
 		73BC119114186C6300F6B689 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC119014186C6300F6B689 /* Categories.m */; };
+		73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F4BADD143D4EC8007676BC /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +54,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		730495EF143C9F6B000D886A /* CHCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSV.h; sourceTree = "<group>"; };
+		730495F0143C9F6B000D886A /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		730495F1143C9F6B000D886A /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		730495F2143C9F6B000D886A /* CHCSVWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVWriter.h; sourceTree = "<group>"; };
+		730495F3143C9F6B000D886A /* CHCSVWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVWriter.m; sourceTree = "<group>"; };
+		730495F4143C9F6B000D886A /* NSArray+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		730495F5143C9F6B000D886A /* NSArray+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		730495F6143C9F6B000D886A /* NSString+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		730495F7143C9F6B000D886A /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
 		731F30C3141FA16C00E414FD /* CategoryTotalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTotalViewController.h; sourceTree = "<group>"; };
 		731F30C4141FA16C00E414FD /* CategoryTotalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTotalViewController.m; sourceTree = "<group>"; };
 		731F30C5141FA16C00E414FD /* CategoryTotalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTotalViewController.xib; sourceTree = "<group>"; };
-		73738AF9141482FE0015D6D7 /* BudgetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		731F30C914223F3400E414FD /* BudgetItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetItems.h; sourceTree = "<group>"; };
+		731F30CA14223F3400E414FD /* BudgetItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetItems.m; sourceTree = "<group>"; };
+		731F30CC1422426B00E414FD /* Dates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dates.h; sourceTree = "<group>"; };
+		731F30CD1422426B00E414FD /* Dates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dates.m; sourceTree = "<group>"; };
+		73738AF9141482FE0015D6D7 /* Follow My Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Follow My Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73738AFD141482FE0015D6D7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		73738AFF141482FE0015D6D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73738B01141482FE0015D6D7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -74,13 +96,16 @@
 		73738B4C1415DE2C0015D6D7 /* ItemDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDateViewController.h; sourceTree = "<group>"; };
 		73738B4D1415DE2D0015D6D7 /* ItemDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDateViewController.m; sourceTree = "<group>"; };
 		73738B4E1415DE2E0015D6D7 /* ItemDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDateViewController.xib; sourceTree = "<group>"; };
+		7389AE221431643A00B97E0E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		7389AE231431643A00B97E0E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		7389AE241431643A00B97E0E /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		73AFC069141BCD4200AB9DBE /* CategoryComboBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryComboBoxController.h; sourceTree = "<group>"; };
 		73AFC06A141BCD4200AB9DBE /* CategoryComboBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryComboBoxController.m; sourceTree = "<group>"; };
 		73AFC06B141BCD4200AB9DBE /* CategoryComboBoxController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryComboBoxController.xib; sourceTree = "<group>"; };
-		73BC118C14186C6300F6B689 /* BudgetItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetItems.h; sourceTree = "<group>"; };
-		73BC118D14186C6300F6B689 /* BudgetItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetItems.m; sourceTree = "<group>"; };
+		73B20DA21442BE7900A6904A /* Money57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Money57.png; sourceTree = "<group>"; };
 		73BC118F14186C6300F6B689 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		73BC119014186C6300F6B689 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		73F4BADD143D4EC8007676BC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */,
 				73738AFE141482FE0015D6D7 /* UIKit.framework in Frameworks */,
 				73738B00141482FE0015D6D7 /* Foundation.framework in Frameworks */,
 				73738B02141482FE0015D6D7 /* CoreData.framework in Frameworks */,
@@ -108,6 +134,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730495E0143C96A8000D886A /* CHCSV */ = {
+			isa = PBXGroup;
+			children = (
+				730495EF143C9F6B000D886A /* CHCSV.h */,
+				730495F0143C9F6B000D886A /* CHCSVParser.h */,
+				730495F1143C9F6B000D886A /* CHCSVParser.m */,
+				730495F2143C9F6B000D886A /* CHCSVWriter.h */,
+				730495F3143C9F6B000D886A /* CHCSVWriter.m */,
+				730495F4143C9F6B000D886A /* NSArray+CHCSVAdditions.h */,
+				730495F5143C9F6B000D886A /* NSArray+CHCSVAdditions.m */,
+				730495F6143C9F6B000D886A /* NSString+CHCSVAdditions.h */,
+				730495F7143C9F6B000D886A /* NSString+CHCSVAdditions.m */,
+			);
+			name = CHCSV;
+			sourceTree = "<group>";
+		};
 		731F30C8141FA17700E414FD /* CategoryTotal */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +158,16 @@
 				731F30C5141FA16C00E414FD /* CategoryTotalViewController.xib */,
 			);
 			name = CategoryTotal;
+			sourceTree = "<group>";
+		};
+		731F30CF1422427500E414FD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				731F30CC1422426B00E414FD /* Dates.h */,
+				731F30CD1422426B00E414FD /* Dates.m */,
+				730495E0143C96A8000D886A /* CHCSV */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		73738AEE141482FE0015D6D7 = {
@@ -131,7 +183,7 @@
 		73738AFA141482FE0015D6D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				73738AF9141482FE0015D6D7 /* BudgetTest.app */,
+				73738AF9141482FE0015D6D7 /* Follow My Money.app */,
 				73738B17141482FF0015D6D7 /* BudgetTestTests.octest */,
 			);
 			name = Products;
@@ -140,6 +192,7 @@
 		73738AFC141482FE0015D6D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73F4BADD143D4EC8007676BC /* MessageUI.framework */,
 				73738AFD141482FE0015D6D7 /* UIKit.framework */,
 				73738AFF141482FE0015D6D7 /* Foundation.framework */,
 				73738B01141482FE0015D6D7 /* CoreData.framework */,
@@ -156,6 +209,8 @@
 				73AFC05D141876D800AB9DBE /* AddItem */,
 				73AFC05F1418780500AB9DBE /* ItemList */,
 				731F30C8141FA17700E414FD /* CategoryTotal */,
+				7389AE21143163B200B97E0E /* Settings */,
+				731F30CF1422427500E414FD /* Helpers */,
 				73AFC068141BBFA300AB9DBE /* Model */,
 				73738B04141482FE0015D6D7 /* Supporting Files */,
 			);
@@ -165,6 +220,7 @@
 		73738B04141482FE0015D6D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73B20DA21442BE7900A6904A /* Money57.png */,
 				73738B05141482FE0015D6D7 /* BudgetTest-Info.plist */,
 				73738B06141482FE0015D6D7 /* InfoPlist.strings */,
 				73738B09141482FE0015D6D7 /* main.m */,
@@ -190,6 +246,16 @@
 				73738B22141482FF0015D6D7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7389AE21143163B200B97E0E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7389AE221431643A00B97E0E /* SettingsViewController.h */,
+				7389AE231431643A00B97E0E /* SettingsViewController.m */,
+				7389AE241431643A00B97E0E /* SettingsViewController.xib */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		73AFC05D141876D800AB9DBE /* AddItem */ = {
@@ -232,8 +298,8 @@
 				73738B0F141482FE0015D6D7 /* BudgetTest.xcdatamodeld */,
 				73BC118F14186C6300F6B689 /* Categories.h */,
 				73BC119014186C6300F6B689 /* Categories.m */,
-				73BC118C14186C6300F6B689 /* BudgetItems.h */,
-				73BC118D14186C6300F6B689 /* BudgetItems.m */,
+				731F30C914223F3400E414FD /* BudgetItems.h */,
+				731F30CA14223F3400E414FD /* BudgetItems.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -255,7 +321,7 @@
 			);
 			name = BudgetTest;
 			productName = BudgetTest;
-			productReference = 73738AF9141482FE0015D6D7 /* BudgetTest.app */;
+			productReference = 73738AF9141482FE0015D6D7 /* Follow My Money.app */;
 			productType = "com.apple.product-type.application";
 		};
 		73738B16141482FF0015D6D7 /* BudgetTestTests */ = {
@@ -314,6 +380,8 @@
 				73738B501415DE2F0015D6D7 /* ItemDateViewController.xib in Resources */,
 				73AFC06D141BCD4200AB9DBE /* CategoryComboBoxController.xib in Resources */,
 				731F30C7141FA16C00E414FD /* CategoryTotalViewController.xib in Resources */,
+				7389AE261431643A00B97E0E /* SettingsViewController.xib in Resources */,
+				73B20DA31442BE7900A6904A /* Money57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +422,16 @@
 				73738B36141489520015D6D7 /* AddItemViewController.m in Sources */,
 				73738B3B141489990015D6D7 /* ItemListViewController.m in Sources */,
 				73738B4F1415DE2F0015D6D7 /* ItemDateViewController.m in Sources */,
-				73BC118E14186C6300F6B689 /* BudgetItems.m in Sources */,
 				73BC119114186C6300F6B689 /* Categories.m in Sources */,
 				73AFC06C141BCD4200AB9DBE /* CategoryComboBoxController.m in Sources */,
 				731F30C6141FA16C00E414FD /* CategoryTotalViewController.m in Sources */,
+				731F30CB14223F3400E414FD /* BudgetItems.m in Sources */,
+				731F30CE1422426C00E414FD /* Dates.m in Sources */,
+				7389AE251431643A00B97E0E /* SettingsViewController.m in Sources */,
+				730495F8143C9F6B000D886A /* CHCSVParser.m in Sources */,
+				730495F9143C9F6B000D886A /* CHCSVWriter.m in Sources */,
+				730495FA143C9F6B000D886A /* NSArray+CHCSVAdditions.m in Sources */,
+				730495FB143C9F6B000D886A /* NSString+CHCSVAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +479,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: joseph cortopassi";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -419,7 +494,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "Follow My Money";
+				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				"PROVISIONING_PROFILE[sdk=*]" = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -428,17 +506,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: joseph cortopassi";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "Follow My Money";
+				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -447,10 +532,14 @@
 		73738B2B141482FF0015D6D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "Follow My Money";
+				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -458,10 +547,14 @@
 		73738B2C141482FF0015D6D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "Follow My Money";
+				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -470,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BudgetTest.app/BudgetTest";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -487,6 +581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BudgetTest.app/BudgetTest";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -500,6 +595,68 @@
 			};
 			name = Release;
 		};
+		73B20D9B1442B57B00A6904A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: joseph cortopassi";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "Follow My Money";
+				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		73B20D9C1442B57B00A6904A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: joseph cortopassi";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
+				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "Follow My Money";
+				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
+		73B20D9D1442B57B00A6904A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BudgetTest.app/BudgetTest";
+				CODE_SIGN_IDENTITY = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
+				INFOPLIST_FILE = "BudgetTestTests/BudgetTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,27 +665,30 @@
 			buildConfigurations = (
 				73738B28141482FF0015D6D7 /* Debug */,
 				73738B29141482FF0015D6D7 /* Release */,
+				73B20D9B1442B57B00A6904A /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Distribution;
 		};
 		73738B2A141482FF0015D6D7 /* Build configuration list for PBXNativeTarget "BudgetTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73738B2B141482FF0015D6D7 /* Debug */,
 				73738B2C141482FF0015D6D7 /* Release */,
+				73B20D9C1442B57B00A6904A /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Distribution;
 		};
 		73738B2D141482FF0015D6D7 /* Build configuration list for PBXNativeTarget "BudgetTestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73738B2E141482FF0015D6D7 /* Debug */,
 				73738B2F141482FF0015D6D7 /* Release */,
+				73B20D9D1442B57B00A6904A /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Distribution;
 		};
 /* End XCConfigurationList section */
 

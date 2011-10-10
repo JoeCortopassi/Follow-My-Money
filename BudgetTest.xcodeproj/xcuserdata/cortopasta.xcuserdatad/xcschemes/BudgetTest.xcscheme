@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "73738AF8141482FE0015D6D7"
-               BuildableName = "BudgetTest.app"
+               BuildableName = "Follow My Money.app"
                BlueprintName = "BudgetTest"
                ReferencedContainer = "container:BudgetTest.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "73738AF8141482FE0015D6D7"
-            BuildableName = "BudgetTest.app"
+            BuildableName = "Follow My Money.app"
             BlueprintName = "BudgetTest"
             ReferencedContainer = "container:BudgetTest.xcodeproj">
          </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "73738AF8141482FE0015D6D7"
-            BuildableName = "BudgetTest.app"
+            BuildableName = "Follow My Money.app"
             BlueprintName = "BudgetTest"
             ReferencedContainer = "container:BudgetTest.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "73738AF8141482FE0015D6D7"
-            BuildableName = "BudgetTest.app"
+            BuildableName = "Follow My Money.app"
             BlueprintName = "BudgetTest"
             ReferencedContainer = "container:BudgetTest.xcodeproj">
          </BuildableReference>
@@ -88,7 +88,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Distribution"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

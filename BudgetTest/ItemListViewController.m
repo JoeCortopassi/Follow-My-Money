@@ -7,11 +7,14 @@
 //
 
 #import "ItemListViewController.h"
+#import "Dates.h"
+#import "AddItemViewController.h"
 
 @implementation ItemListViewController
 
 @synthesize managedObjectContext;
-@synthesize itemList;
+@synthesize itemList, periodDates, dates, itemListByDatesInPeriod;
+@synthesize addItemViewController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -57,7 +60,7 @@
 {
     [super viewWillAppear:animated];
     
-    
+    // Get all the 'BudgetItems'
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"BudgetItems"
                                               inManagedObjectContext:self.managedObjectContext];
@@ -69,10 +72,60 @@
         // Handle the error
     }
     
+    // Store the fetched 'BudgetItems'
     self.itemList = [[NSMutableArray alloc] initWithArray:fetchedObjects];
     
+    // Get our 'Dates' helper object
+    self.dates = [[Dates alloc] init];
+    self.periodDates = [self.dates datesInPeriod];
+    
+    self.itemListByDatesInPeriod = [[NSMutableArray alloc] init];
+    
+    
+    
+    
+    double totalForDay = 0;
+    //double previousTotal = 0;
+    //NSString *titleOfZeroSection;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateFormat: @"M/d/Y"];
+    
+    // Set-up each section
+    for (int i = 0; i < self.periodDates.count; i++) {
+        NSMutableArray *itemsForDay = [[NSMutableArray alloc] init];
+        NSDictionary *dateItems = [[NSMutableDictionary alloc] init];
+        //NSDictionary *dateItemsZeroResults = [[NSMutableDictionary alloc] init];
+        
+        
+        for (int j = 0; j < self.itemList.count; j++) {
+            if ( [self.dates isSameDay:[[self.itemList objectAtIndex:j] valueForKey:@"date"] asDay:[self.periodDates objectAtIndex:i]] ) {
+                totalForDay += [[[self.itemList objectAtIndex:j] valueForKey:@"amount"] doubleValue];
+                [itemsForDay addObject:[self.itemList objectAtIndex:j]];
+            }            
+        }
+        
+        
+        if ( itemsForDay.count != 0) {
+            [dateItems setValue:[NSNumber numberWithDouble:totalForDay] forKey:@"total"];
+            [dateItems setValue:[self.periodDates objectAtIndex:i] forKey:@"date"];
+            [dateItems setValue:itemsForDay forKey:@"items"];
+            
+            [self.itemListByDatesInPeriod addObject:dateItems];
+        }
+        
+        itemsForDay = nil;
+        dateItems = nil;
+        totalForDay = 0;
+    }
+    
+    self.periodDates = [NSMutableArray arrayWithArray:[[self.periodDates reverseObjectEnumerator] allObjects]];
+    self.itemListByDatesInPeriod = [ NSMutableArray arrayWithArray:[[self.itemListByDatesInPeriod reverseObjectEnumerator] allObjects]];
     [self.tableView reloadData];
 }
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -100,15 +153,35 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return self.itemListByDatesInPeriod.count;
 }
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateFormat: @"M/d/Y"];
+    
+    NSString *sectionDate;
+    
+    if ([[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"date"] isKindOfClass:[NSString class]]) {
+        sectionDate = [[self.itemListByDatesInPeriod  objectAtIndex:section] valueForKey:@"date"];
+    } else {
+        sectionDate = [dateFormatter stringFromDate:[[self.itemListByDatesInPeriod  objectAtIndex:section] valueForKey:@"date"]];
+    }
+    
+    
+    return [NSString stringWithFormat:@"%@  -  $%@", sectionDate, [[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"total"]];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
   
     
-    return self.itemList.count;
+    return [[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"items"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,8 +193,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    NSArray *thisItem = [[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row];
+    
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"$%@  -  %@", [[self.itemList objectAtIndex:indexPath.row] valueForKey:@"amount"], [[self.itemList objectAtIndex:indexPath.row] valueForKey:@"item"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"$%@  -  %@", [thisItem valueForKey:@"amount"], [thisItem valueForKey:@"item"]];
     
     
     return cell;
@@ -141,7 +216,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *budgetItemToDelete = [self.itemList objectAtIndex:indexPath.row];
+        NSManagedObject *budgetItemToDelete = [[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row];
+        
         [self.managedObjectContext deleteObject:budgetItemToDelete];
         
         NSError *error;
@@ -150,9 +226,8 @@
         }
         
         // Update the array and table view.
-        [self.itemList removeObjectAtIndex:indexPath.row];
+        [[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -186,6 +261,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    self.addItemViewController = [[AddItemViewController alloc] initWithBudgetItem:[[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row]];
+    self.addItemViewController.managedObjectContext = self.managedObjectContext;
+    [self presentModalViewController:self.addItemViewController animated:YES];
 }
 
 @end

@@ -9,9 +9,11 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
-	<array/>
+	<array>
+		<string>Money57.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
-	<string>JoeCortopassi.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.joecortopassi.followmymoney</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
