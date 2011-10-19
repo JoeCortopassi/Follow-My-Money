@@ -14,6 +14,7 @@
 
 @interface CategoryComboBoxController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
+    NSString *category_storage;
     IBOutlet UITextField *input;
     IBOutlet UITableView *autoSuggest;
     NSMutableArray *autoSuggestList;
@@ -22,6 +23,7 @@
     id <CategoryComboBoxDelegate> delegate;
 }
 
+@property(retain) NSString *category_storage;
 @property(retain) IBOutlet UITextField *input;
 @property(retain) IBOutlet UITableView *autoSuggest;
 @property(retain) NSMutableArray *autoSuggestList;
@@ -30,5 +32,6 @@
 @property(retain) id <CategoryComboBoxDelegate> delegate;
 
 -(IBAction)textChanged;
+-(id)initWithCategory:(NSString *)newCategory;
 
 @end

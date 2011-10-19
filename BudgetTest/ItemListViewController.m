@@ -172,7 +172,7 @@
     }
     
     
-    return [NSString stringWithFormat:@"%@  -  $%@", sectionDate, [[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"total"]];
+    return [NSString stringWithFormat:@"%@  -  $%0.2f", sectionDate, [[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"total"] floatValue]];
 }
 
 
@@ -196,7 +196,7 @@
     NSArray *thisItem = [[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row];
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"$%@  -  %@", [thisItem valueForKey:@"amount"], [thisItem valueForKey:@"item"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"$%0.2f  -  %@", [[thisItem valueForKey:@"amount"] floatValue], [thisItem valueForKey:@"item"]];
     
     
     return cell;

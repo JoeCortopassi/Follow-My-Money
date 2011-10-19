@@ -10,7 +10,7 @@
 
 @implementation CategoryComboBoxController
 
-@synthesize input, autoSuggest, autoSuggestList;
+@synthesize input, autoSuggest, autoSuggestList, category_storage;
 @synthesize managedObjectContext,delegate;
 
 
@@ -51,6 +51,21 @@
     return self;
 }
 
+
+
+-(id)initWithCategory:(NSString *)newCategory
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+    }
+    self.category_storage = newCategory;
+    self.autoSuggest.delegate = self;
+    self.autoSuggest.dataSource = self;
+    
+    return self;
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -82,6 +97,7 @@
 {
     [super viewDidLoad];
     [self.input becomeFirstResponder];
+    self.input.text = self.category_storage;
     // Do any additional setup after loading the view from its nib.
 }
 

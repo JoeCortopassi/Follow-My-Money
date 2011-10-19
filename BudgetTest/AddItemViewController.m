@@ -136,7 +136,7 @@
 
 -(IBAction)showCategoryComboBox
 {
-    self.categoryComboBoxViewController = [[CategoryComboBoxController alloc] init];
+    self.categoryComboBoxViewController = [[CategoryComboBoxController alloc] initWithCategory:self.category.text];
     self.categoryComboBoxViewController.managedObjectContext = self.managedObjectContext;
     self.categoryComboBoxViewController.delegate = self;
     [self presentModalViewController:self.categoryComboBoxViewController animated:YES];
