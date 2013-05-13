@@ -25,7 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    NSLog(@"window - width: %f, height: %f", [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     // Override point for customization after application launch.
     self.addItemViewController = [[AddItemViewController alloc] init];
     self.addItemViewController.managedObjectContext = self.managedObjectContext;

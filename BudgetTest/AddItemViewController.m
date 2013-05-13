@@ -272,7 +272,7 @@
     labelCategory.frame = CGRectMake(20.0, 182.0, 78.0, 21.0);
     labelCategory.textAlignment = NSTextAlignmentRight;
     labelCategory.text = @"Category:";
-    labelCategory.font = [UIFont boldSystemFontOfSize:18.0f];
+    labelCategory.font = [UIFont boldSystemFontOfSize:16.0f];
     
     [self.view addSubview:labelCategory];
 }

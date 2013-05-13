@@ -39,6 +39,7 @@
 		73AFC06D141BCD4200AB9DBE /* CategoryComboBoxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AFC06B141BCD4200AB9DBE /* CategoryComboBoxController.xib */; };
 		73B20DA31442BE7900A6904A /* Money57.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B20DA21442BE7900A6904A /* Money57.png */; };
 		73BC119114186C6300F6B689 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC119014186C6300F6B689 /* Categories.m */; };
+		73D535101741AD9B008CA8AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */; };
 		73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F4BADD143D4EC8007676BC /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		73B20DA21442BE7900A6904A /* Money57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Money57.png; sourceTree = "<group>"; };
 		73BC118F14186C6300F6B689 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		73BC119014186C6300F6B689 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		73F4BADD143D4EC8007676BC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 		73738AEE141482FE0015D6D7 = {
 			isa = PBXGroup;
 			children = (
+				73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */,
 				73738B03141482FE0015D6D7 /* BudgetTest */,
 				73738B1F141482FF0015D6D7 /* BudgetTestTests */,
 				73738AFC141482FE0015D6D7 /* Frameworks */,
@@ -378,6 +381,7 @@
 				731F30C7141FA16C00E414FD /* CategoryTotalViewController.xib in Resources */,
 				7389AE261431643A00B97E0E /* SettingsViewController.xib in Resources */,
 				73B20DA31442BE7900A6904A /* Money57.png in Resources */,
+				73D535101741AD9B008CA8AB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
