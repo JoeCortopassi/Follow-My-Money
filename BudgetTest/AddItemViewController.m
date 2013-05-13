@@ -10,16 +10,44 @@
 #import "BudgetItems.h"
 #import "Categories.h"
 
+
+
+
+@implementation UITextField(UITextFieldCatagory)
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    CGRect inset = CGRectMake(bounds.origin.x + 10, bounds.origin.y, bounds.size.width - 10, bounds.size.height);
+    return inset;
+}
+
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    CGRect inset = CGRectMake(bounds.origin.x + 10, bounds.origin.y, bounds.size.width - 10, bounds.size.height);
+    return inset;
+}
+@end
+
+
+
+
+
+@interface AddItemViewController ()
+@property (nonatomic, retain) UIButton *buttonSave;
+@property (nonatomic, retain) UIButton *buttonKeyboardHide;
+@end
+
+
+
+
+
 @implementation AddItemViewController
 
-@synthesize titleLabel,date,item,amount,category;
+@synthesize labelTitle,inputDate,inputItem,inputAmount,inputCategory;
 @synthesize managedObjectContext, budgetItem;
 @synthesize itemDateViewController,categoryComboBoxViewController;
 
 
 -(void)setCategoryFromComboBox:(NSString *)string
 {
-    self.category.text = string;
+    self.inputCategory.text = string;
 }
 
 -(void)setPickersDate:(NSDate *)newDate forField:(NSString *)newFieldToSet
@@ -28,7 +56,7 @@
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setDateFormat: @"M/d/Y"];
-    self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:newDate]];
+    self.inputDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:newDate]];
 }
 
 
@@ -45,13 +73,13 @@
     [fetchRequest setEntity:entity];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@",
-                              category.text];
+                              inputCategory.text];
     [fetchRequest setPredicate:predicate];
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     if ([fetchedObjects count] == 0) {
         Categories *categories = [NSEntityDescription insertNewObjectForEntityForName:@"Categories" inManagedObjectContext:self.managedObjectContext];
-        categories.name = category.text;
+        categories.name = inputCategory.text;
         budgetItems.category = categories;
     } else {
         budgetItems.category = [fetchedObjects objectAtIndex:0];
@@ -62,9 +90,9 @@
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setDateFormat: @"MM/dd/yyyy"];
     
-    budgetItems.date = [dateFormatter dateFromString:date.text];
-    budgetItems.amount = [amount.text doubleValue];
-    budgetItems.item = item.text;
+    budgetItems.date = [dateFormatter dateFromString:inputDate.text];
+    budgetItems.amount = [inputAmount.text doubleValue];
+    budgetItems.item = inputItem.text;
         
     if (self.budgetItem) {
         [self.managedObjectContext deleteObject:self.budgetItem];
@@ -75,8 +103,8 @@
     if (![self.managedObjectContext save:&error]) {
         // Handle the error.
     } else {
-        titleLabel.text = @"Item Saved!";
-        titleLabel.backgroundColor = [UIColor colorWithRed:230.00/255.00 green:239.00/255.00 blue:194.00/255.00 alpha:1.0];
+        labelTitle.text = @"Item Saved!";
+        labelTitle.backgroundColor = [UIColor colorWithRed:230.00/255.00 green:239.00/255.00 blue:194.00/255.00 alpha:1.0];
         
         [NSTimer scheduledTimerWithTimeInterval:1.3
                                          target:self
@@ -96,20 +124,14 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setDateFormat: @"M/d/Y"];
     
-    self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
-    amount.text = @"";
-    item.text = @"";
-    category.text = @"";  
-    
-    date.backgroundColor = nil;
-    amount.backgroundColor = nil;
-    item.backgroundColor = nil;
-    category.backgroundColor = nil;
+    self.inputDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
+    inputAmount.text = @"";
+    inputItem.text = @"";
+    inputCategory.text = @"";
     
     
-    
-    self.titleLabel.text = @"Add an Item";
-    self.titleLabel.backgroundColor = nil;
+    self.labelTitle.text = @"Add an Item";
+    self.labelTitle.backgroundColor = nil;
 }
 
 
@@ -120,7 +142,7 @@
 }
 
 
--(IBAction)showDatePicker
+-(void)showDatePicker
 {
     self.itemDateViewController = [[ItemDateViewController alloc] init];
     self.itemDateViewController.fieldToSet = @"Item";
@@ -129,14 +151,14 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM/dd/yyyy"];
 
-    self.itemDateViewController.date = [dateFormat dateFromString:self.date.text];
+    self.itemDateViewController.date = [dateFormat dateFromString:self.inputDate.text];
         [self presentModalViewController:self.itemDateViewController animated:YES];
 }
 
 
 -(IBAction)showCategoryComboBox
 {
-    self.categoryComboBoxViewController = [[CategoryComboBoxController alloc] initWithCategory:self.category.text];
+    self.categoryComboBoxViewController = [[CategoryComboBoxController alloc] initWithCategory:self.inputCategory.text];
     self.categoryComboBoxViewController.managedObjectContext = self.managedObjectContext;
     self.categoryComboBoxViewController.delegate = self;
     [self presentModalViewController:self.categoryComboBoxViewController animated:YES];
@@ -156,29 +178,39 @@
 
 
 #pragma mark - Default methods
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id) init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self = [super init])
+    {
+        self.view.frame = [[UIScreen mainScreen] applicationFrame];
     }
+    
+    
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setupLabelDate];
+    [self setupLabelAmount];
+    [self setupLabelItem];
+    [self setupLabelCategory];
+    
+    [self setupButtonKeyboardHide];
+    
+    [self setupInputDate];
+    [self setupInputAmount];
+    [self setupInputItem];
+    [self setupInputCategory];
+    
+    [self setupButtonSave];
+    
+    
     // Do any additional setup after loading the view from its nib.
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -187,27 +219,134 @@
     
     
     if ( self.budgetItem ) {
-        self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[self.budgetItem valueForKey:@"date"]]];
-        self.amount.text = [NSString stringWithFormat:@"%0.2f", [[self.budgetItem valueForKey:@"amount"] doubleValue]];
-        self.item.text = [self.budgetItem valueForKey:@"item"];
-        self.category.text = [[self.budgetItem valueForKey:@"category"] valueForKey:@"name"];
-        self.titleLabel.text = @"Edit Item";
+        self.inputDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[self.budgetItem valueForKey:@"date"]]];
+        self.inputAmount.text = [NSString stringWithFormat:@"%0.2f", [[self.budgetItem valueForKey:@"amount"] doubleValue]];
+        self.inputItem.text = [self.budgetItem valueForKey:@"item"];
+        self.inputCategory.text = [[self.budgetItem valueForKey:@"category"] valueForKey:@"name"];
+        self.labelTitle.text = @"Edit Item";
     } else {
-        self.date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
+        self.inputDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     }
 }
 
-- (void)viewDidUnload
+
+- (void) setupLabelDate
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    UILabel *labelDate = [[UILabel alloc] init];
+    labelDate.frame = CGRectMake(20.0, 65.0, 78.0, 21.0);
+    labelDate.textAlignment = NSTextAlignmentRight;
+    labelDate.text = @"Date:";
+    labelDate.font = [UIFont boldSystemFontOfSize:18.0f];
+    
+    [self.view addSubview:labelDate];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+
+- (void) setupLabelAmount
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    UILabel *labelAmount = [[UILabel alloc] init];
+    labelAmount.frame = CGRectMake(20.0, 104.0, 78.0, 21.0);
+    labelAmount.textAlignment = NSTextAlignmentRight;
+    labelAmount.text = @"Amount:";
+    labelAmount.font = [UIFont boldSystemFontOfSize:18.0f];
+    
+    [self.view addSubview:labelAmount];
 }
 
+
+- (void) setupLabelItem
+{
+    UILabel *labelItem = [[UILabel alloc] init];
+    labelItem.frame = CGRectMake(20.0, 143.0, 78.0, 21.0);
+    labelItem.textAlignment = NSTextAlignmentRight;
+    labelItem.text = @"Item:";
+    labelItem.font = [UIFont boldSystemFontOfSize:18.0f];
+    
+    [self.view addSubview:labelItem];
+}
+
+
+- (void) setupLabelCategory
+{
+    UILabel *labelCategory = [[UILabel alloc] init];
+    labelCategory.frame = CGRectMake(20.0, 182.0, 78.0, 21.0);
+    labelCategory.textAlignment = NSTextAlignmentRight;
+    labelCategory.text = @"Category:";
+    labelCategory.font = [UIFont boldSystemFontOfSize:18.0f];
+    
+    [self.view addSubview:labelCategory];
+}
+
+
+- (void) setupInputDate
+{
+    self.inputDate = [[UITextField alloc] init];
+    self.inputDate.frame = CGRectMake(106.0, 60.0, 194.0, 31.0);
+    self.inputDate.borderStyle = UITextBorderStyleNone;
+    self.inputDate.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
+    self.inputDate.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    [self.inputDate addTarget:self action:@selector(showDatePicker) forControlEvents:UIControlEventTouchDown];
+    
+    [self.view addSubview:self.inputDate];
+}
+
+
+- (void) setupInputAmount
+{
+    self.inputAmount = [[UITextField alloc] init];
+    self.inputAmount.frame = CGRectMake(106.0, 99.0, 194.0, 31.0);
+    self.inputAmount.borderStyle = UITextBorderStyleNone;
+    self.inputAmount.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
+    self.inputAmount.keyboardType = UIKeyboardTypeDecimalPad;
+    self.inputAmount.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    
+    [self.view addSubview:self.inputAmount];
+}
+
+
+- (void) setupInputItem
+{
+    self.inputItem = [[UITextField alloc] init];
+    self.inputItem.frame = CGRectMake(106.0, 138.0, 194.0, 31.0);
+    self.inputItem.borderStyle = UITextBorderStyleNone;
+    self.inputItem.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
+    self.inputItem.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    
+    [self.view addSubview:self.inputItem];
+}
+
+
+- (void) setupInputCategory
+{
+    self.inputCategory = [[UITextField alloc] init];
+    self.inputCategory.frame = CGRectMake(106.0, 182.0, 194.0, 31.0);
+    self.inputCategory.borderStyle = UITextBorderStyleNone;
+    self.inputCategory.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
+    self.inputCategory.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    [self.inputCategory addTarget:self action:@selector(showCategoryComboBox) forControlEvents:UIControlEventTouchDown];
+    
+    [self.view addSubview:self.inputCategory];
+}
+
+
+- (void) setupButtonSave
+{
+    self.buttonSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.buttonSave.frame = CGRectMake(106.0, 221.0, 72.0, 37.0);
+    [self.buttonSave setTitle:@"Save" forState:UIControlStateNormal];
+    [self.buttonSave addTarget:self action:@selector(saveBudgetItem) forControlEvents:UIControlEventTouchUpInside];
+    [self.buttonSave addTarget:self action:@selector(hideKeyboard) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.buttonSave];
+}
+
+
+- (void) setupButtonKeyboardHide
+{
+    self.buttonKeyboardHide = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.buttonKeyboardHide.frame = self.view.frame;
+    [self.buttonKeyboardHide addTarget:self action:@selector(hideKeyboard) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.buttonKeyboardHide];
+}
 @end

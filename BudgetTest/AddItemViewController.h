@@ -14,22 +14,22 @@
 
 @interface AddItemViewController : UIViewController <ItemDateDelegate,CategoryComboBoxDelegate>
 {
-    IBOutlet UILabel *titleLabel;
-    IBOutlet UITextField *date;
-    IBOutlet UITextField *amount;
-    IBOutlet UITextField *item;
-    IBOutlet UITextField *category;
+    IBOutlet UILabel *labelTitle;
+    UITextField *inputDate;
+    UITextField *inputAmount;
+    UITextField *inputItem;
+    UITextField *inputCategory;
     NSManagedObjectContext *managedObjectContext;
     NSManagedObject *budgetItem;
     ItemDateViewController *itemDateViewController;
     CategoryComboBoxController *categoryComboBoxController;
 }
 
-@property(retain) IBOutlet UILabel *titleLabel;
-@property(retain) IBOutlet UITextField *date;
-@property(retain) IBOutlet UITextField *amount;
-@property(retain) IBOutlet UITextField *item;
-@property(retain) IBOutlet UITextField *category;
+@property(retain) IBOutlet UILabel *labelTitle;
+@property(retain) UITextField *inputDate;
+@property(retain) UITextField *inputAmount;
+@property(retain) UITextField *inputItem;
+@property(retain) UITextField *inputCategory;
 @property(retain) NSManagedObjectContext *managedObjectContext;
 @property(retain) NSManagedObject *budgetItem;
 @property(retain) ItemDateViewController *itemDateViewController;
