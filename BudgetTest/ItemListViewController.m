@@ -61,7 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.view.backgroundColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.05];
+    self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
     
     // Get all the 'BudgetItems'
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -200,6 +200,10 @@
     
     // Configure the cell...
     cell.textLabel.text = [NSString stringWithFormat:@"$%0.2f  -  %@", [[thisItem valueForKey:@"amount"] floatValue], [thisItem valueForKey:@"item"]];
+    
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    
     
     
     return cell;

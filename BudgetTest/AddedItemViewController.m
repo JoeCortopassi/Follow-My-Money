@@ -104,7 +104,7 @@
         // Handle the error.
     } else {
         labelTitle.text = @"Item Saved!";
-        labelTitle.backgroundColor = [UIColor colorWithRed:230.00/255.00 green:239.00/255.00 blue:194.00/255.00 alpha:1.0];
+        labelTitle.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.4];
         
         [NSTimer scheduledTimerWithTimeInterval:1.3
                                          target:self
@@ -131,7 +131,7 @@
     
     
     self.labelTitle.text = @"Add an Item";
-    self.labelTitle.backgroundColor = nil;
+    self.labelTitle.backgroundColor = [UIColor clearColor];
 }
 
 
@@ -196,7 +196,7 @@
 {
     [super viewDidLoad];
     
-//    self.view.backgroundColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
+    self.view.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.1];
     
     [self setupLabelTitle];
     [self setupLabelDate];
@@ -240,6 +240,7 @@
     self.labelTitle.font = [UIFont boldSystemFontOfSize:22.0];
     self.labelTitle.textAlignment = NSTextAlignmentCenter;
     self.labelTitle.text = @"Add an Item";
+    self.labelTitle.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:self.labelTitle];
 }
@@ -252,6 +253,7 @@
     labelDate.textAlignment = NSTextAlignmentRight;
     labelDate.text = @"Date:";
     labelDate.font = [UIFont boldSystemFontOfSize:18.0f];
+    labelDate.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:labelDate];
 }
@@ -264,6 +266,7 @@
     labelAmount.textAlignment = NSTextAlignmentRight;
     labelAmount.text = @"Amount:";
     labelAmount.font = [UIFont boldSystemFontOfSize:18.0f];
+    labelAmount.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:labelAmount];
 }
@@ -276,6 +279,7 @@
     labelItem.textAlignment = NSTextAlignmentRight;
     labelItem.text = @"Item:";
     labelItem.font = [UIFont boldSystemFontOfSize:18.0f];
+    labelItem.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:labelItem];
 }
@@ -288,6 +292,7 @@
     labelCategory.textAlignment = NSTextAlignmentRight;
     labelCategory.text = @"Category:";
     labelCategory.font = [UIFont boldSystemFontOfSize:16.0f];
+    labelCategory.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:labelCategory];
 }

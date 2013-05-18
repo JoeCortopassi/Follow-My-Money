@@ -228,6 +228,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    self.scrollView.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    
+    
     self.navigationController.navigationBarHidden = YES;
     self.scrollView.frame = [[UIScreen mainScreen] bounds];
     [scrollView setScrollEnabled:YES];
