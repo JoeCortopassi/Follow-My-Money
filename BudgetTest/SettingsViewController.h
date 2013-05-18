@@ -50,5 +50,8 @@
 -(IBAction)pickBackupToDate;
 -(IBAction)sendBackupEmail;
 -(IBAction)periodIntervalSlider;
+-(IBAction)openQuickConversions;
+-(IBAction)openSimpleKnot;
+-(IBAction)sendEmail;
 
 @end

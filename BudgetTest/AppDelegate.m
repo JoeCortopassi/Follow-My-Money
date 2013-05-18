@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AddItemViewController.h"
+#import "AddedItemViewController.h"
 #import "ItemListViewController.h"
 #import "CategoryTotalViewController.h"
 #import "SettingsViewController.h"
@@ -25,32 +25,35 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    NSLog(@"window - width: %f, height: %f", [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    
     // Override point for customization after application launch.
-    self.addItemViewController = [[AddItemViewController alloc] init];
+    self.addItemViewController = [[AddedItemViewController alloc] init];
     self.addItemViewController.managedObjectContext = self.managedObjectContext;
     self.addItemViewController.title = @"Add";
+    self.addItemViewController.tabBarItem.image = [UIImage imageNamed:@"add_item_tab_bar.png"];
     
     self.itemListViewController = [[ItemListViewController alloc] init];
     self.itemListViewController.managedObjectContext = self.managedObjectContext;
     self.itemListViewController.title = @"List";
+    self.itemListViewController.tabBarItem.image = [UIImage imageNamed:@"list_tab_bar.png"];
     self.itemListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.itemListViewController];
     
     self.categoryTotalViewController = [[CategoryTotalViewController alloc] init];
     self.categoryTotalViewController.managedObjectContext = self.managedObjectContext;
     self.categoryTotalViewController.title = @"Totals";
+    self.categoryTotalViewController.tabBarItem.image = [UIImage imageNamed:@"category_tab_bar.png"];
     self.categoryTotalsNavigationController = [[UINavigationController alloc] initWithRootViewController:self.categoryTotalViewController];
     
     SettingsViewController *settingsViewController = [[SettingsViewController alloc] init];
     settingsViewController.managedObjectContext = self.managedObjectContext;
     settingsViewController.title = @"Settings";
+    settingsViewController.tabBarItem.image = [UIImage imageNamed:@"settings_tab_bar.png"];
     self.settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     
     NSArray *tabBarViews = [[NSArray alloc] initWithObjects:self.addItemViewController, self.itemListNavigationController, self.categoryTotalsNavigationController, self.settingsNavigationController, nil];
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = tabBarViews;
-    
     [self.window addSubview:self.tabBarController.view];
     [self.window makeKeyAndVisible];
     return YES;

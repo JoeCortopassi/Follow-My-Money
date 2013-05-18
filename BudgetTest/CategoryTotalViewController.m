@@ -36,12 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
 }
 
 - (void)viewDidUnload
@@ -113,11 +109,11 @@
         [self.categoryTotals addObject:[NSNumber numberWithDouble:total]];
         grandTotal += total;
     }    
-    NSMutableDictionary *grandTotalName = [[NSMutableDictionary alloc] init];
-    [grandTotalName  setValue:@"Grand Total" forKey:@"name"];
-    [self.categories insertObject:grandTotalName atIndex:0];
-    
-    [self.categoryTotals insertObject:[NSNumber numberWithDouble:grandTotal] atIndex:0];
+//    NSMutableDictionary *grandTotalName = [[NSMutableDictionary alloc] init];
+//    [grandTotalName  setValue:@"Grand Total" forKey:@"name"];
+//    [self.categories insertObject:grandTotalName atIndex:0];
+    self.title = [NSString stringWithFormat:@"%@  -  $%0.2f", @"Grand Total", grandTotal];
+//    [self.categoryTotals insertObject:[NSNumber numberWithDouble:grandTotal] atIndex:0];
     [self.tableView reloadData];
 
 }
@@ -169,6 +165,16 @@
     //cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.categoryTotals objectAtIndex:indexPath.row] valueForKey:@"amount"]];
     cell.textLabel.text = [NSString stringWithFormat:@"%@  -  $%0.2f", [[self.categories objectAtIndex:indexPath.row] valueForKey:@"name"], [[self.categoryTotals objectAtIndex:indexPath.row] doubleValue]];
 
+//    if (indexPath.row == 0)
+//    {
+//        cell.textLabel.backgroundColor = [UIColor clearColor];
+//        //        cell.contentView.backgroundColor = [UIColor colorWithRed:230.00/255.00 green:239.00/255.00 blue:194.00/255.00 alpha:1.0];
+//   //     cell.contentView.backgroundColor = [UIColor colorWithRed:0.00/255.00 green:225.00/255.00 blue:71.00/255.00 alpha:0.7];
+//        cell.contentView.backgroundColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
+//        
+////        1	131	37
+//    }
+    
     return cell;
 }
 

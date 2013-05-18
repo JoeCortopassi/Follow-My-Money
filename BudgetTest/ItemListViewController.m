@@ -8,7 +8,7 @@
 
 #import "ItemListViewController.h"
 #import "Dates.h"
-#import "AddItemViewController.h"
+#import "AddedItemViewController.h"
 
 @implementation ItemListViewController
 
@@ -44,8 +44,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
+
     
 }
 
@@ -59,6 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.view.backgroundColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.05];
     
     // Get all the 'BudgetItems'
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -262,7 +265,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    self.addItemViewController = [[AddItemViewController alloc] initWithBudgetItem:[[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row]];
+    self.addItemViewController = [[AddedItemViewController alloc] initWithBudgetItem:[[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row]];
     self.addItemViewController.managedObjectContext = self.managedObjectContext;
     [self presentModalViewController:self.addItemViewController animated:YES];
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AddItemViewController.h"
+#import "AddedItemViewController.h"
 #import "BudgetItems.h"
 #import "Categories.h"
 
@@ -29,7 +29,7 @@
 
 
 
-@interface AddItemViewController ()
+@interface AddedItemViewController ()
 @property (nonatomic, retain) UIButton *buttonSave;
 @property (nonatomic, retain) UIButton *buttonKeyboardHide;
 @end
@@ -38,7 +38,7 @@
 
 
 
-@implementation AddItemViewController
+@implementation AddedItemViewController
 
 @synthesize labelTitle,inputDate,inputItem,inputAmount,inputCategory;
 @synthesize managedObjectContext, budgetItem;
@@ -60,10 +60,10 @@
 }
 
 
--(IBAction)saveBudgetItem
+-(void)saveBudgetItem
 {
     BudgetItems *budgetItems = [NSEntityDescription insertNewObjectForEntityForName:@"BudgetItems" inManagedObjectContext:self.managedObjectContext];
-
+    
     NSError *error = nil;
     
     
@@ -93,7 +93,7 @@
     budgetItems.date = [dateFormatter dateFromString:inputDate.text];
     budgetItems.amount = [inputAmount.text doubleValue];
     budgetItems.item = inputItem.text;
-        
+    
     if (self.budgetItem) {
         [self.managedObjectContext deleteObject:self.budgetItem];
         [self dismissModalViewControllerAnimated:YES];
@@ -135,7 +135,7 @@
 }
 
 
--(IBAction)hideKeyboard
+-(void)hideKeyboard
 {
     [self resignFirstResponder];
     [self.view endEditing:YES];
@@ -150,13 +150,13 @@
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM/dd/yyyy"];
-
+    
     self.itemDateViewController.date = [dateFormat dateFromString:self.inputDate.text];
-        [self presentModalViewController:self.itemDateViewController animated:YES];
+    [self presentModalViewController:self.itemDateViewController animated:YES];
 }
 
 
--(IBAction)showCategoryComboBox
+-(void)showCategoryComboBox
 {
     self.categoryComboBoxViewController = [[CategoryComboBoxController alloc] initWithCategory:self.inputCategory.text];
     self.categoryComboBoxViewController.managedObjectContext = self.managedObjectContext;
@@ -182,7 +182,7 @@
 {
     if (self = [super init])
     {
-        self.view.frame = [[UIScreen mainScreen] applicationFrame];
+        //self.view.frame = [[UIScreen mainScreen] bounds];//[[UIScreen mainScreen] applicationFrame];
     }
     
     
@@ -196,6 +196,9 @@
 {
     [super viewDidLoad];
     
+//    self.view.backgroundColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
+    
+    [self setupLabelTitle];
     [self setupLabelDate];
     [self setupLabelAmount];
     [self setupLabelItem];
@@ -227,6 +230,18 @@
     } else {
         self.inputDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     }
+}
+
+
+- (void) setupLabelTitle
+{
+    self.labelTitle = [[UILabel alloc] init];
+    self.labelTitle.frame = CGRectMake(0, 0, 320.0, 52.0);
+    self.labelTitle.font = [UIFont boldSystemFontOfSize:22.0];
+    self.labelTitle.textAlignment = NSTextAlignmentCenter;
+    self.labelTitle.text = @"Add an Item";
+    
+    [self.view addSubview:self.labelTitle];
 }
 
 

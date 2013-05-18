@@ -21,6 +21,38 @@
 @synthesize periodStartDatePicker, backupFromDatePicker, backupToDatePicker;
 
 
+
+
+
+
+-(IBAction)openQuickConversions
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/quick-conversions/id595047250?mt=8"]];
+}
+
+
+-(IBAction)openSimpleKnot
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/simple-knot/id593421479?mt=8"]];
+}
+
+
+-(IBAction)sendEmail
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.mailComposeDelegate = self;
+        [mailComposer setToRecipients:[NSArray arrayWithObject:@"followmymoney@joecortopassi.com"]];
+        [mailComposer setSubject:@"Feedback: 'Follow my Money'"];
+        [mailComposer setMessageBody:[NSString stringWithFormat:@"" ] isHTML:NO];
+        
+        [self presentModalViewController:mailComposer animated:YES];
+    }
+}
+
+
+
+
 -(void)setPickersDate:(NSDate *)newDate forField:(NSString *)newFieldToSet
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -196,6 +228,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
+    self.scrollView.frame = [[UIScreen mainScreen] bounds];
     [scrollView setScrollEnabled:YES];
     [scrollView setContentSize:CGSizeMake(320,1200)];
 
