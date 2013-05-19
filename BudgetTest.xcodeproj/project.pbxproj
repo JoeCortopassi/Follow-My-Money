@@ -40,11 +40,18 @@
 		737B5450174805120000C24E /* knots.png in Resources */ = {isa = PBXBuildFile; fileRef = 737B544E174805120000C24E /* knots.png */; };
 		737B5451174805120000C24E /* conversions.png in Resources */ = {isa = PBXBuildFile; fileRef = 737B544F174805120000C24E /* conversions.png */; };
 		737B5453174805A00000C24E /* profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 737B5452174805A00000C24E /* profile_pic.png */; };
+		737B5458174820720000C24E /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 737B5455174820720000C24E /* iRate.bundle */; };
+		737B5459174820720000C24E /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B5457174820720000C24E /* iRate.m */; };
+		737B545B174820C70000C24E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737B545A174820C70000C24E /* StoreKit.framework */; };
+		737B5460174832B90000C24E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737B545F174832B80000C24E /* QuartzCore.framework */; };
 		7389AE251431643A00B97E0E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7389AE231431643A00B97E0E /* SettingsViewController.m */; };
 		7389AE261431643A00B97E0E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7389AE241431643A00B97E0E /* SettingsViewController.xib */; };
 		73AFC06C141BCD4200AB9DBE /* CategoryComboBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AFC06A141BCD4200AB9DBE /* CategoryComboBoxController.m */; };
 		73AFC06D141BCD4200AB9DBE /* CategoryComboBoxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AFC06B141BCD4200AB9DBE /* CategoryComboBoxController.xib */; };
 		73B20DA31442BE7900A6904A /* Money57.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B20DA21442BE7900A6904A /* Money57.png */; };
+		73B42F621748493F00E6DD23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B42F611748493F00E6DD23 /* CoreGraphics.framework */; };
+		73B42F6617484C3400E6DD23 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F6517484C3400E6DD23 /* FXLabel.m */; };
+		73B42F69174851AD00E6DD23 /* FMMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F68174851AD00E6DD23 /* FMMButton.m */; };
 		73BC119114186C6300F6B689 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC119014186C6300F6B689 /* Categories.m */; };
 		73D535101741AD9B008CA8AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */; };
 		73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F4BADD143D4EC8007676BC /* MessageUI.framework */; };
@@ -109,6 +116,11 @@
 		737B544E174805120000C24E /* knots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knots.png; sourceTree = "<group>"; };
 		737B544F174805120000C24E /* conversions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conversions.png; sourceTree = "<group>"; };
 		737B5452174805A00000C24E /* profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_pic.png; sourceTree = "<group>"; };
+		737B5455174820720000C24E /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		737B5456174820720000C24E /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		737B5457174820720000C24E /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		737B545A174820C70000C24E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		737B545F174832B80000C24E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7389AE221431643A00B97E0E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7389AE231431643A00B97E0E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7389AE241431643A00B97E0E /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -116,6 +128,11 @@
 		73AFC06A141BCD4200AB9DBE /* CategoryComboBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryComboBoxController.m; sourceTree = "<group>"; };
 		73AFC06B141BCD4200AB9DBE /* CategoryComboBoxController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryComboBoxController.xib; sourceTree = "<group>"; };
 		73B20DA21442BE7900A6904A /* Money57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Money57.png; sourceTree = "<group>"; };
+		73B42F611748493F00E6DD23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		73B42F6417484C3400E6DD23 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
+		73B42F6517484C3400E6DD23 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
+		73B42F67174851AD00E6DD23 /* FMMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMButton.h; sourceTree = "<group>"; };
+		73B42F68174851AD00E6DD23 /* FMMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMButton.m; sourceTree = "<group>"; };
 		73BC118F14186C6300F6B689 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		73BC119014186C6300F6B689 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -127,6 +144,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73B42F621748493F00E6DD23 /* CoreGraphics.framework in Frameworks */,
+				737B5460174832B90000C24E /* QuartzCore.framework in Frameworks */,
+				737B545B174820C70000C24E /* StoreKit.framework in Frameworks */,
 				73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */,
 				73738AFE141482FE0015D6D7 /* UIKit.framework in Frameworks */,
 				73738B00141482FE0015D6D7 /* Foundation.framework in Frameworks */,
@@ -177,6 +197,10 @@
 		731F30CF1422427500E414FD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				73B42F67174851AD00E6DD23 /* FMMButton.h */,
+				73B42F68174851AD00E6DD23 /* FMMButton.m */,
+				73B42F6317484C3400E6DD23 /* FXLabel */,
+				737B54541748204F0000C24E /* iRate */,
 				731F30CC1422426B00E414FD /* Dates.h */,
 				731F30CD1422426B00E414FD /* Dates.m */,
 				730495E0143C96A8000D886A /* CHCSV */,
@@ -187,6 +211,9 @@
 		73738AEE141482FE0015D6D7 = {
 			isa = PBXGroup;
 			children = (
+				73B42F611748493F00E6DD23 /* CoreGraphics.framework */,
+				737B545F174832B80000C24E /* QuartzCore.framework */,
+				737B545A174820C70000C24E /* StoreKit.framework */,
 				73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */,
 				73738B03141482FE0015D6D7 /* BudgetTest */,
 				73738B1F141482FF0015D6D7 /* BudgetTestTests */,
@@ -270,6 +297,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		737B54541748204F0000C24E /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				737B5455174820720000C24E /* iRate.bundle */,
+				737B5456174820720000C24E /* iRate.h */,
+				737B5457174820720000C24E /* iRate.m */,
+			);
+			name = iRate;
+			sourceTree = "<group>";
+		};
 		7389AE21143163B200B97E0E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +360,16 @@
 				731F30CA14223F3400E414FD /* BudgetItems.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		73B42F6317484C3400E6DD23 /* FXLabel */ = {
+			isa = PBXGroup;
+			children = (
+				73B42F6417484C3400E6DD23 /* FXLabel.h */,
+				73B42F6517484C3400E6DD23 /* FXLabel.m */,
+			);
+			name = FXLabel;
+			path = ../../FXLabel/FXLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +457,7 @@
 				737B5450174805120000C24E /* knots.png in Resources */,
 				737B5451174805120000C24E /* conversions.png in Resources */,
 				737B5453174805A00000C24E /* profile_pic.png in Resources */,
+				737B5458174820720000C24E /* iRate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +508,9 @@
 				730495FA143C9F6B000D886A /* NSArray+CHCSVAdditions.m in Sources */,
 				730495FB143C9F6B000D886A /* NSString+CHCSVAdditions.m in Sources */,
 				734061D01744892C00A8C98E /* AddedItemViewController.m in Sources */,
+				737B5459174820720000C24E /* iRate.m in Sources */,
+				73B42F6617484C3400E6DD23 /* FXLabel.m in Sources */,
+				73B42F69174851AD00E6DD23 /* FMMButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

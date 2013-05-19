@@ -11,6 +11,7 @@
 #import "ItemListViewController.h"
 #import "CategoryTotalViewController.h"
 #import "SettingsViewController.h"
+#import "iRate.h"
 
 @implementation AppDelegate
 
@@ -22,10 +23,34 @@
 @synthesize addItemViewController, itemListViewController, categoryTotalViewController;
 @synthesize tabBarController,itemListNavigationController, categoryTotalsNavigationController, settingsNavigationController;
 
+
+
+
+
++ (void)initialize
+{
+    //configure iRate
+	[iRate sharedInstance].onlyPromptIfLatestVersion = NO;
+    [iRate sharedInstance].promptAgainForEachNewVersion = YES;
+    [iRate sharedInstance].applicationName = @"Follow My Money";
+    //    [iRate sharedInstance].daysUntilPrompt = 7;
+    [iRate sharedInstance].usesUntilPrompt = 5;
+    
+    //enable preview mode
+    //[iRate sharedInstance].previewMode = YES;
+}
+
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [[UIButton appearance] setTintColor:[UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.5]];
+    
+    
     // Override point for customization after application launch.
     self.addItemViewController = [[AddedItemViewController alloc] init];
     self.addItemViewController.managedObjectContext = self.managedObjectContext;

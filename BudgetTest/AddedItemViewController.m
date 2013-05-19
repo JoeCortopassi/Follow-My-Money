@@ -7,8 +7,10 @@
 //
 
 #import "AddedItemViewController.h"
+#import "FMMButton.h"
 #import "BudgetItems.h"
 #import "Categories.h"
+#import "FXLabel.h"
 
 
 
@@ -30,7 +32,7 @@
 
 
 @interface AddedItemViewController ()
-@property (nonatomic, retain) UIButton *buttonSave;
+@property (nonatomic, retain) FMMButton *buttonSave;
 @property (nonatomic, retain) UIButton *buttonKeyboardHide;
 @end
 
@@ -351,12 +353,11 @@
 
 - (void) setupButtonSave
 {
-    self.buttonSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.buttonSave.frame = CGRectMake(106.0, 221.0, 72.0, 37.0);
-    [self.buttonSave setTitle:@"Save" forState:UIControlStateNormal];
+    self.buttonSave = [[FMMButton alloc] initWithFrame:CGRectMake(106.0, 221.0, 72.0, 37.0)];
+    self.buttonSave.titleLabel.text = @"Save";
     [self.buttonSave addTarget:self action:@selector(saveBudgetItem) forControlEvents:UIControlEventTouchUpInside];
     [self.buttonSave addTarget:self action:@selector(hideKeyboard) forControlEvents:UIControlEventTouchUpInside];
-    
+
     [self.view addSubview:self.buttonSave];
 }
 
