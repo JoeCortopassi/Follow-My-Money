@@ -9,6 +9,7 @@
 #import "ItemListViewController.h"
 #import "Dates.h"
 #import "AddedItemViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ItemListViewController
 
@@ -239,6 +240,45 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
+
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateFormat: @"M/d/Y"];
+    
+    NSString *sectionDate;
+    
+    if ([[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"date"] isKindOfClass:[NSString class]]) {
+        sectionDate = [[self.itemListByDatesInPeriod  objectAtIndex:section] valueForKey:@"date"];
+    } else {
+        sectionDate = [dateFormatter stringFromDate:[[self.itemListByDatesInPeriod  objectAtIndex:section] valueForKey:@"date"]];
+    }
+    
+    
+    NSString *sectionTitle = [NSString stringWithFormat:@"%@  -  $%0.2f", sectionDate, [[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"total"] floatValue]];
+
+    
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    headerView.backgroundColor = [UIColor colorWithRed:133.00/255.00 green:194.00/255.00 blue:160.00/255.00 alpha:1.0];
+    headerView.layer.borderColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.65].CGColor;
+    headerView.layer.borderWidth = 1.0;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, tableView.bounds.size.width - 10, 18)];
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor grayColor];
+    label.shadowOffset = CGSizeMake(0, -1);
+    label.text = sectionTitle;
+    label.backgroundColor = [UIColor clearColor];
+    
+    [headerView addSubview:label];
+    
+    return headerView;
+}
+
 
 
 /*

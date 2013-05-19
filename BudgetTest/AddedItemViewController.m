@@ -106,7 +106,7 @@
         // Handle the error.
     } else {
         labelTitle.text = @"Item Saved!";
-        labelTitle.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.4];
+        labelTitle.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.5];
         
         [NSTimer scheduledTimerWithTimeInterval:1.3
                                          target:self
@@ -133,7 +133,7 @@
     
     
     self.labelTitle.text = @"Add an Item";
-    self.labelTitle.backgroundColor = [UIColor clearColor];
+    self.labelTitle.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.25];
 }
 
 
@@ -239,10 +239,10 @@
 {
     self.labelTitle = [[UILabel alloc] init];
     self.labelTitle.frame = CGRectMake(0, 0, 320.0, 52.0);
+    self.labelTitle.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.25];
     self.labelTitle.font = [UIFont boldSystemFontOfSize:22.0];
     self.labelTitle.textAlignment = NSTextAlignmentCenter;
     self.labelTitle.text = @"Add an Item";
-    self.labelTitle.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:self.labelTitle];
 }
@@ -341,7 +341,7 @@
 - (void) setupInputCategory
 {
     self.inputCategory = [[UITextField alloc] init];
-    self.inputCategory.frame = CGRectMake(106.0, 182.0, 194.0, 31.0);
+    self.inputCategory.frame = CGRectMake(106.0, 177.0, 194.0, 31.0);
     self.inputCategory.borderStyle = UITextBorderStyleNone;
     self.inputCategory.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.1];
     self.inputCategory.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;

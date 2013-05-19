@@ -34,20 +34,21 @@
         
         
         self.titleLabel = [[FXLabel alloc] init];
-        self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        
-        
-        self.titleLabel.frame = self.frame;
+        self.titleLabel.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.titleLabel.backgroundColor = [UIColor redColor];
         self.titleLabel.textColor = [UIColor whiteColor];
-        self.titleLabel.text = @"Foo";
+        self.titleLabel.text = @"";
+        self.titleLabel.shadowBlur = 0.5;
+        self.titleLabel.shadowColor = [UIColor blackColor];
+        self.titleLabel.shadowOffset = CGSizeMake(0, -1);
         
         
-        self.button.frame = self.frame;
-        self.button.backgroundColor = [UIColor yellowColor];
-        [self.button setTitle:@"jhg" forState:UIControlStateNormal];
+        self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.button.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        self.button.backgroundColor = [UIColor clearColor];
+        [self.button setTitle:@"" forState:UIControlStateNormal];
 
         
         [self addSubview:self.titleLabel];
