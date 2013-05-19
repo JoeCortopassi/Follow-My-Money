@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
-@class FXLabel;
-
+#import "FXLabel.h"
 
 @interface FMMButton : UIView
 @property (nonatomic, strong) FXLabel *titleLabel;

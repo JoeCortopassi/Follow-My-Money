@@ -270,7 +270,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, tableView.bounds.size.width - 10, 18)];
     label.textColor = [UIColor whiteColor];
     label.shadowColor = [UIColor grayColor];
-    label.shadowOffset = CGSizeMake(0, -1);
+    label.shadowOffset = CGSizeMake(1, 1);
     label.text = sectionTitle;
     label.backgroundColor = [UIColor clearColor];
     

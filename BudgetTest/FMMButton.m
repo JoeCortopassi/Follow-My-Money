@@ -7,7 +7,6 @@
 //
 
 #import "FMMButton.h"
-#import "FXLabel.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -42,7 +41,7 @@
         self.titleLabel.text = @"";
         self.titleLabel.shadowBlur = 0.5;
         self.titleLabel.shadowColor = [UIColor blackColor];
-        self.titleLabel.shadowOffset = CGSizeMake(0, -1);
+        self.titleLabel.shadowOffset = CGSizeMake(1, 1);
         
         
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];

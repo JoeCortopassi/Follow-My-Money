@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "ItemDateViewController.h"
 #import "CHCSV.h"
+#import "FMMButton.h"
 
 @implementation SettingsViewController
 
@@ -84,7 +85,6 @@
 
 -(IBAction)setPeriodDefaults
 {
-    NSLog(@"asdf");
     [self.userDefaults setObject:self.period_start_date.text forKey:@"period_start_date"];
     [self.userDefaults setFloat:self.period_interval.value forKey:@"period_interval"];
 }
@@ -241,6 +241,9 @@
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     // Do any additional setup after loading the view from its nib.
     
+    [self setupButtonDefaultSave];
+    [self setupButtonBackupSend];
+    
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -279,7 +282,24 @@
 }
 
 
+- (void) setupButtonDefaultSave
+{
+    FMMButton *buttonSave = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 528.0, 72.0, 37.0)];
+    buttonSave.titleLabel.text = @"Save";
+    [buttonSave addTarget:self action:@selector(setPeriodDefaults) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonSave];
+}
 
+
+- (void) setupButtonBackupSend
+{
+    FMMButton *buttonSend = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 854.0, 72.0, 37.0)];
+    buttonSend.titleLabel.text = @"Send";
+    [buttonSend addTarget:self action:@selector(sendBackupEmail) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonSend];
+}
 
 
 - (void)viewDidUnload
