@@ -8,6 +8,7 @@
 
 #import "AddedItemViewController.h"
 #import "FMMButton.h"
+#import "FMMInputField.h"
 #import "BudgetItems.h"
 #import "Categories.h"
 #import <QuartzCore/QuartzCore.h>
@@ -301,14 +302,9 @@
 
 - (void) setupInputDate
 {
-    self.inputDate = [[UITextField alloc] init];
+    self.inputDate = [[FMMInputField alloc] init];
     self.inputDate.frame = CGRectMake(106.0, 60.0, 194.0, 31.0);
-    self.inputDate.borderStyle = UITextBorderStyleNone;
-    self.inputDate.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
-    self.inputDate.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [self.inputDate addTarget:self action:@selector(showDatePicker) forControlEvents:UIControlEventTouchDown];
-    self.inputDate.layer.borderWidth = 1.0;
-    self.inputDate.layer.borderColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.5].CGColor;
     
     [self.view addSubview:self.inputDate];
 }
@@ -316,14 +312,8 @@
 
 - (void) setupInputAmount
 {
-    self.inputAmount = [[UITextField alloc] init];
+    self.inputAmount = [[FMMInputField alloc] init];
     self.inputAmount.frame = CGRectMake(106.0, 99.0, 194.0, 31.0);
-    self.inputAmount.borderStyle = UITextBorderStyleNone;
-    self.inputAmount.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
-    self.inputAmount.keyboardType = UIKeyboardTypeDecimalPad;
-    self.inputAmount.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    self.inputAmount.layer.borderWidth = 1.0;
-    self.inputAmount.layer.borderColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.5].CGColor;
     
     [self.view addSubview:self.inputAmount];
 }
@@ -331,13 +321,8 @@
 
 - (void) setupInputItem
 {
-    self.inputItem = [[UITextField alloc] init];
+    self.inputItem = [[FMMInputField alloc] init];
     self.inputItem.frame = CGRectMake(106.0, 138.0, 194.0, 31.0);
-    self.inputItem.borderStyle = UITextBorderStyleNone;
-    self.inputItem.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
-    self.inputItem.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    self.inputItem.layer.borderWidth = 1.0;
-    self.inputItem.layer.borderColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.5].CGColor;
     
     [self.view addSubview:self.inputItem];
 }
@@ -345,14 +330,9 @@
 
 - (void) setupInputCategory
 {
-    self.inputCategory = [[UITextField alloc] init];
+    self.inputCategory = [[FMMInputField alloc] init];
     self.inputCategory.frame = CGRectMake(106.0, 177.0, 194.0, 31.0);
-    self.inputCategory.borderStyle = UITextBorderStyleNone;
-    self.inputCategory.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
-    self.inputCategory.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [self.inputCategory addTarget:self action:@selector(showCategoryComboBox) forControlEvents:UIControlEventTouchDown];
-    self.inputCategory.layer.borderWidth = 1.0;
-    self.inputCategory.layer.borderColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.5].CGColor;
     
     [self.view addSubview:self.inputCategory];
 }

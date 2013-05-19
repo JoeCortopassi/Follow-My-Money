@@ -54,7 +54,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
-    // Do any additional setup after loading the view from its nib. 
+    [self setupButtonSet];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -64,10 +65,14 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
+- (void) setupButtonSet
+{
+    self.buttonSet = [[FMMButton alloc] initWithFrame:CGRectMake(72, 327, 176, 37)];
+    self.buttonSet.titleLabel.text = @"Set";
+    [self.buttonSet addTarget:self action:@selector(dateSelected) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.view addSubview:self.buttonSet];
+}
 @end

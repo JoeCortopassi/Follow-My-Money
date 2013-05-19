@@ -45,6 +45,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#error make uidatepicker overlay capable of not swallowing touches
+#error style list table view and category totals table view to have amounts right aligned
+#error  make fmm button have a darker style when pressed
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     

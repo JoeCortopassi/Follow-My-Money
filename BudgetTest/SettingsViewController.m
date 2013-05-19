@@ -87,6 +87,14 @@
 {
     [self.userDefaults setObject:self.period_start_date.text forKey:@"period_start_date"];
     [self.userDefaults setFloat:self.period_interval.value forKey:@"period_interval"];
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"Saved!"
+                          message: @"Your default budget period has been saved."
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
 }
 
 -(IBAction)pickBackupFromDate

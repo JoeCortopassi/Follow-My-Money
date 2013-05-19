@@ -52,6 +52,7 @@
 		73B42F621748493F00E6DD23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B42F611748493F00E6DD23 /* CoreGraphics.framework */; };
 		73B42F6617484C3400E6DD23 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F6517484C3400E6DD23 /* FXLabel.m */; };
 		73B42F69174851AD00E6DD23 /* FMMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F68174851AD00E6DD23 /* FMMButton.m */; };
+		73B42F6C1749060400E6DD23 /* FMMInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F6B1749060400E6DD23 /* FMMInputField.m */; };
 		73BC119114186C6300F6B689 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC119014186C6300F6B689 /* Categories.m */; };
 		73D535101741AD9B008CA8AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */; };
 		73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F4BADD143D4EC8007676BC /* MessageUI.framework */; };
@@ -133,6 +134,8 @@
 		73B42F6517484C3400E6DD23 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		73B42F67174851AD00E6DD23 /* FMMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMButton.h; sourceTree = "<group>"; };
 		73B42F68174851AD00E6DD23 /* FMMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMButton.m; sourceTree = "<group>"; };
+		73B42F6A1749060400E6DD23 /* FMMInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMInputField.h; sourceTree = "<group>"; };
+		73B42F6B1749060400E6DD23 /* FMMInputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMInputField.m; sourceTree = "<group>"; };
 		73BC118F14186C6300F6B689 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		73BC119014186C6300F6B689 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			children = (
 				73B42F67174851AD00E6DD23 /* FMMButton.h */,
 				73B42F68174851AD00E6DD23 /* FMMButton.m */,
+				73B42F6A1749060400E6DD23 /* FMMInputField.h */,
+				73B42F6B1749060400E6DD23 /* FMMInputField.m */,
 				73B42F6317484C3400E6DD23 /* FXLabel */,
 				737B54541748204F0000C24E /* iRate */,
 				731F30CC1422426B00E414FD /* Dates.h */,
@@ -511,6 +516,7 @@
 				737B5459174820720000C24E /* iRate.m in Sources */,
 				73B42F6617484C3400E6DD23 /* FXLabel.m in Sources */,
 				73B42F69174851AD00E6DD23 /* FMMButton.m in Sources */,
+				73B42F6C1749060400E6DD23 /* FMMInputField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "CategoryComboBoxController.h"
 
+
 @implementation CategoryComboBoxController
 
 @synthesize input, autoSuggest, autoSuggestList, category_storage;
@@ -102,6 +103,7 @@
     
     [self.input becomeFirstResponder];
     self.input.text = self.category_storage;
+    
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -10,15 +10,15 @@
 #import "ItemDateViewController.h"
 #import "CategoryComboBoxController.h"
 
-@class BudgetItems;
+@class BudgetItems, FMMInputField;
 
 @interface AddedItemViewController : UIViewController <ItemDateDelegate,CategoryComboBoxDelegate>
 {
     UILabel *labelTitle;
-    UITextField *inputDate;
-    UITextField *inputAmount;
-    UITextField *inputItem;
-    UITextField *inputCategory;
+    FMMInputField *inputDate;
+    FMMInputField *inputAmount;
+    FMMInputField *inputItem;
+    FMMInputField *inputCategory;
     NSManagedObjectContext *managedObjectContext;
     NSManagedObject *budgetItem;
     ItemDateViewController *itemDateViewController;
@@ -26,10 +26,10 @@
 }
 
 @property(nonatomic, strong) UILabel *labelTitle;
-@property(nonatomic, strong) UITextField *inputDate;
-@property(nonatomic, strong) UITextField *inputAmount;
-@property(nonatomic, strong) UITextField *inputItem;
-@property(nonatomic, strong) UITextField *inputCategory;
+@property(nonatomic, strong) FMMInputField *inputDate;
+@property(nonatomic, strong) FMMInputField *inputAmount;
+@property(nonatomic, strong) FMMInputField *inputItem;
+@property(nonatomic, strong) FMMInputField *inputCategory;
 @property(nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property(nonatomic, strong) NSManagedObject *budgetItem;
 @property(nonatomic, strong) ItemDateViewController *itemDateViewController;
