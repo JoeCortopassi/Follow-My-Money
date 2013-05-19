@@ -33,7 +33,7 @@
 	[iRate sharedInstance].onlyPromptIfLatestVersion = NO;
     [iRate sharedInstance].promptAgainForEachNewVersion = YES;
     [iRate sharedInstance].applicationName = @"Follow My Money";
-    //    [iRate sharedInstance].daysUntilPrompt = 7;
+    [iRate sharedInstance].daysUntilPrompt = 7;
     [iRate sharedInstance].usesUntilPrompt = 5;
     
     //enable preview mode
@@ -45,11 +45,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-#error make uidatepicker overlay capable of not swallowing touches
-#error style list table view and category totals table view to have amounts right aligned
-#error  make fmm button have a darker style when pressed
-    
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     

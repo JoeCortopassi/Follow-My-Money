@@ -52,7 +52,7 @@
 							<object class="IBUITextView" id="154959808">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 654}, {319, 103}}</string>
+								<string key="NSFrame">{{0, 698}, {319, 103}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="897150247"/>
@@ -83,7 +83,7 @@
 							<object class="IBUITextField" id="282714188">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{144, 815}, {157, 31}}</string>
+								<string key="NSFrame">{{144, 859}, {157, 31}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -117,7 +117,7 @@
 							<object class="IBUITextField" id="475322574">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{144, 776}, {157, 31}}</string>
+								<string key="NSFrame">{{144, 820}, {157, 31}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="690343662"/>
@@ -143,7 +143,7 @@
 							<object class="IBUILabel" id="690343662">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{94, 820}, {42, 21}}</string>
+								<string key="NSFrame">{{94, 864}, {42, 21}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="282714188"/>
@@ -175,7 +175,7 @@
 							<object class="IBUILabel" id="897150247">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{91, 779}, {45, 21}}</string>
+								<string key="NSFrame">{{91, 823}, {45, 21}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="475322574"/>
@@ -196,7 +196,7 @@
 							<object class="IBUILabel" id="899571679">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{19, 498}, {115, 21}}</string>
+								<string key="NSFrame">{{19, 542}, {115, 21}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="251975906"/>
@@ -217,7 +217,7 @@
 							<object class="IBUISlider" id="251975906">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{140, 498}, {161, 23}}</string>
+								<string key="NSFrame">{{140, 542}, {161, 23}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="908083864"/>
@@ -230,7 +230,7 @@
 							<object class="IBUILabel" id="908083864">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 604}, {320, 52}}</string>
+								<string key="NSFrame">{{0, 648}, {320, 52}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="154959808"/>
@@ -270,7 +270,7 @@
 							<object class="IBUILabel" id="194195553">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 285}, {320, 52}}</string>
+								<string key="NSFrame">{{0, 329}, {320, 52}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="427624844"/>
@@ -297,7 +297,7 @@
 							<object class="IBUITextView" id="427624844">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 337}, {319, 103}}</string>
+								<string key="NSFrame">{{0, 381}, {319, 103}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="542260914"/>
@@ -318,7 +318,7 @@
 							<object class="IBUILabel" id="542260914">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{52, 462}, {82, 21}}</string>
+								<string key="NSFrame">{{52, 506}, {82, 21}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="424870123"/>
@@ -338,7 +338,7 @@
 							<object class="IBUITextField" id="424870123">
 								<reference key="NSNextResponder" ref="905629104"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{142, 459}, {157, 31}}</string>
+								<string key="NSFrame">{{142, 503}, {157, 31}}</string>
 								<reference key="NSSuperview" ref="905629104"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="899571679"/>
@@ -470,7 +470,7 @@
 									<int key="type">2</int>
 									<double key="pointSize">15</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="1072031917">
+								<object class="NSFont" key="IBUIFont" id="538664733">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
@@ -499,7 +499,7 @@
 									<string key="NSResourceName">knots.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="270486872"/>
-								<reference key="IBUIFont" ref="1072031917"/>
+								<reference key="IBUIFont" ref="538664733"/>
 							</object>
 							<object class="IBUITextView" id="451615621">
 								<reference key="NSNextResponder" ref="905629104"/>
@@ -552,7 +552,7 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Email</string>
+								<string key="IBUIText">Website</string>
 								<int key="IBUITextAlignment">1</int>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 									<int key="IBUIAutocapitalizationType">2</int>
@@ -575,7 +575,7 @@
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
+				<reference key="NSNextKeyView" ref="905629104"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -715,6 +715,15 @@
 					</object>
 					<int key="connectionID">83</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">openWebsite</string>
+						<reference key="source" ref="780884498"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">84</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -752,18 +761,19 @@
 						<reference key="object" ref="905629104"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="722495253"/>
 							<reference ref="424870123"/>
 							<reference ref="542260914"/>
+							<reference ref="427624844"/>
 							<reference ref="194195553"/>
+							<reference ref="908083864"/>
 							<reference ref="251975906"/>
 							<reference ref="899571679"/>
-							<reference ref="908083864"/>
 							<reference ref="897150247"/>
 							<reference ref="690343662"/>
 							<reference ref="475322574"/>
 							<reference ref="282714188"/>
 							<reference ref="154959808"/>
-							<reference ref="722495253"/>
 							<reference ref="754628947"/>
 							<reference ref="451615621"/>
 							<reference ref="247422108"/>
@@ -771,49 +781,8 @@
 							<reference ref="316671676"/>
 							<reference ref="359371743"/>
 							<reference ref="627020889"/>
-							<reference ref="427624844"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">39</int>
-						<reference key="object" ref="427624844"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">72</int>
-						<reference key="object" ref="627020889"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">73</int>
-						<reference key="object" ref="359371743"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">74</int>
-						<reference key="object" ref="316671676"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">76</int>
-						<reference key="object" ref="780884498"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">75</int>
-						<reference key="object" ref="247422108"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">78</int>
-						<reference key="object" ref="451615621"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">79</int>
-						<reference key="object" ref="754628947"/>
-						<reference key="parent" ref="905629104"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">80</int>
@@ -821,48 +790,8 @@
 						<reference key="parent" ref="905629104"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">12</int>
-						<reference key="object" ref="154959808"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">17</int>
-						<reference key="object" ref="282714188"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">16</int>
-						<reference key="object" ref="475322574"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">14</int>
-						<reference key="object" ref="690343662"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">13</int>
-						<reference key="object" ref="897150247"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">19</int>
-						<reference key="object" ref="908083864"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">6</int>
-						<reference key="object" ref="899571679"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">5</int>
-						<reference key="object" ref="251975906"/>
-						<reference key="parent" ref="905629104"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">38</int>
-						<reference key="object" ref="194195553"/>
+						<int key="objectID">41</int>
+						<reference key="object" ref="424870123"/>
 						<reference key="parent" ref="905629104"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -871,8 +800,88 @@
 						<reference key="parent" ref="905629104"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">41</int>
-						<reference key="object" ref="424870123"/>
+						<int key="objectID">39</int>
+						<reference key="object" ref="427624844"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">38</int>
+						<reference key="object" ref="194195553"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">19</int>
+						<reference key="object" ref="908083864"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">5</int>
+						<reference key="object" ref="251975906"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">6</int>
+						<reference key="object" ref="899571679"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">13</int>
+						<reference key="object" ref="897150247"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">14</int>
+						<reference key="object" ref="690343662"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">16</int>
+						<reference key="object" ref="475322574"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">17</int>
+						<reference key="object" ref="282714188"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">12</int>
+						<reference key="object" ref="154959808"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">79</int>
+						<reference key="object" ref="754628947"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">78</int>
+						<reference key="object" ref="451615621"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">75</int>
+						<reference key="object" ref="247422108"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">76</int>
+						<reference key="object" ref="780884498"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">74</int>
+						<reference key="object" ref="316671676"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">73</int>
+						<reference key="object" ref="359371743"/>
+						<reference key="parent" ref="905629104"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">72</int>
+						<reference key="object" ref="627020889"/>
 						<reference key="parent" ref="905629104"/>
 					</object>
 				</object>
@@ -956,7 +965,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">83</int>
+			<int key="maxID">84</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -978,6 +987,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>openQuickConversions</string>
 							<string>openSimpleKnot</string>
+							<string>openWebsite</string>
 							<string>periodIntervalSlider</string>
 							<string>pickBackupFromDate</string>
 							<string>pickBackupToDate</string>
@@ -988,6 +998,7 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1005,6 +1016,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>openQuickConversions</string>
 							<string>openSimpleKnot</string>
+							<string>openWebsite</string>
 							<string>periodIntervalSlider</string>
 							<string>pickBackupFromDate</string>
 							<string>pickBackupToDate</string>
@@ -1021,6 +1033,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">openSimpleKnot</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">openWebsite</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

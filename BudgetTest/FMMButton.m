@@ -27,6 +27,7 @@
         [self setupStyle];
         [self setupLabel];
         [self setupButton];
+        [self setupActions];
     }
     
     
@@ -41,12 +42,22 @@
         [self setupStyle];
         [self setupLabel];
         [self setupButton];
+        [self setupActions];
+        
     }
     
     
     return self;
 }
 
+
+
+- (void) setupActions
+{
+    [self.button addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
+    [self.button addTarget:self action:@selector(buttonReleased) forControlEvents:UIControlEventTouchUpInside];
+    [self.button addTarget:self action:@selector(buttonReleased) forControlEvents:UIControlEventTouchUpOutside];
+}
 
 
 - (void) setupStyle
@@ -92,4 +103,18 @@
 {
     [self.button addTarget:target action:action forControlEvents:controlEvents];
 }
+
+
+- (void) buttonPressed
+{
+    self.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.85];
+}
+
+
+- (void) buttonReleased
+{
+    self.backgroundColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.45];
+}
+
+
 @end

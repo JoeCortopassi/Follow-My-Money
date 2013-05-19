@@ -38,6 +38,12 @@
 }
 
 
+-(IBAction)openWebsite
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://joecortopassi.com"]];
+}
+
+
 -(IBAction)sendEmail
 {
     if ([MFMailComposeViewController canSendMail]) {
@@ -45,7 +51,7 @@
         mailComposer.mailComposeDelegate = self;
         [mailComposer setToRecipients:[NSArray arrayWithObject:@"followmymoney@joecortopassi.com"]];
         [mailComposer setSubject:@"Feedback: 'Follow my Money'"];
-        [mailComposer setMessageBody:[NSString stringWithFormat:@"" ] isHTML:NO];
+        [mailComposer setMessageBody:[NSString stringWithFormat:@"1. My favorite feature is...\n\n\n2. The one thing I wish would be better is...\n\n\n3. If I could have you add one feature, it would be...\n\n" ] isHTML:NO];
         
         [self presentModalViewController:mailComposer animated:YES];
     }
@@ -251,6 +257,7 @@
     
     [self setupButtonDefaultSave];
     [self setupButtonBackupSend];
+    [self setupButtonEmail];
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -292,7 +299,7 @@
 
 - (void) setupButtonDefaultSave
 {
-    FMMButton *buttonSave = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 528.0, 72.0, 37.0)];
+    FMMButton *buttonSave = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 578.0, 72.0, 37.0)];
     buttonSave.titleLabel.text = @"Save";
     [buttonSave addTarget:self action:@selector(setPeriodDefaults) forControlEvents:UIControlEventTouchUpInside];
     
@@ -302,11 +309,21 @@
 
 - (void) setupButtonBackupSend
 {
-    FMMButton *buttonSend = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 854.0, 72.0, 37.0)];
+    FMMButton *buttonSend = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 904.0, 72.0, 37.0)];
     buttonSend.titleLabel.text = @"Send";
     [buttonSend addTarget:self action:@selector(sendBackupEmail) forControlEvents:UIControlEventTouchUpInside];
     
     [self.scrollView addSubview:buttonSend];
+}
+
+
+- (void) setupButtonEmail
+{
+    FMMButton *buttonEmail = [[FMMButton alloc] initWithFrame:CGRectMake(50.0, 265.0, 220.0, 40.0)];
+    buttonEmail.titleLabel.text = @"Email";
+    [buttonEmail addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonEmail];
 }
 
 

@@ -314,6 +314,7 @@
 {
     self.inputAmount = [[FMMInputField alloc] init];
     self.inputAmount.frame = CGRectMake(106.0, 99.0, 194.0, 31.0);
+    self.inputAmount.keyboardType = UIKeyboardTypeDecimalPad;
     
     [self.view addSubview:self.inputAmount];
 }
