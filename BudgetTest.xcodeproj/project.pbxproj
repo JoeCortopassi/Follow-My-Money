@@ -54,6 +54,7 @@
 		73B42F69174851AD00E6DD23 /* FMMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F68174851AD00E6DD23 /* FMMButton.m */; };
 		73B42F6C1749060400E6DD23 /* FMMInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F6B1749060400E6DD23 /* FMMInputField.m */; };
 		73B42F6F1749842400E6DD23 /* FMMPassThroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F6E1749842400E6DD23 /* FMMPassThroughView.m */; };
+		73B42F721749936200E6DD23 /* CategorySectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B42F711749936200E6DD23 /* CategorySectionHeaderView.m */; };
 		73BC119114186C6300F6B689 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BC119014186C6300F6B689 /* Categories.m */; };
 		73D535101741AD9B008CA8AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */; };
 		73F4BADE143D4EC8007676BC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F4BADD143D4EC8007676BC /* MessageUI.framework */; };
@@ -139,6 +140,8 @@
 		73B42F6B1749060400E6DD23 /* FMMInputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMInputField.m; sourceTree = "<group>"; };
 		73B42F6D1749842400E6DD23 /* FMMPassThroughView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMPassThroughView.h; sourceTree = "<group>"; };
 		73B42F6E1749842400E6DD23 /* FMMPassThroughView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMPassThroughView.m; sourceTree = "<group>"; };
+		73B42F701749936200E6DD23 /* CategorySectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorySectionHeaderView.h; sourceTree = "<group>"; };
+		73B42F711749936200E6DD23 /* CategorySectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorySectionHeaderView.m; sourceTree = "<group>"; };
 		73BC118F14186C6300F6B689 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		73BC119014186C6300F6B689 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		73D5350F1741AD9B008CA8AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				731F30C3141FA16C00E414FD /* CategoryTotalViewController.h */,
 				731F30C4141FA16C00E414FD /* CategoryTotalViewController.m */,
 				731F30C5141FA16C00E414FD /* CategoryTotalViewController.xib */,
+				73B42F701749936200E6DD23 /* CategorySectionHeaderView.h */,
+				73B42F711749936200E6DD23 /* CategorySectionHeaderView.m */,
 			);
 			name = CategoryTotal;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				73B42F69174851AD00E6DD23 /* FMMButton.m in Sources */,
 				73B42F6C1749060400E6DD23 /* FMMInputField.m in Sources */,
 				73B42F6F1749842400E6DD23 /* FMMPassThroughView.m in Sources */,
+				73B42F721749936200E6DD23 /* CategorySectionHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +643,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Follow My Money";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -652,7 +658,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Follow My Money";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -736,7 +742,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Follow My Money";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
