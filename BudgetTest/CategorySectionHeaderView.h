@@ -20,6 +20,7 @@
 @property (nonatomic, weak) id <SectionHeaderViewDelegate> delegate;
 @property (nonatomic, strong) UILabel *labelCategory;
 @property (nonatomic, strong) UILabel *labelTotal;
+-(void)toggleOpenWithUserAction:(BOOL)userAction;
 @end
 
 

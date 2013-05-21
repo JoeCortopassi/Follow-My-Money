@@ -64,6 +64,10 @@
 {
     self.labelTotal = [[UILabel alloc] init];
     self.labelTotal.frame = CGRectMake(self.frame.size.width*0.67, 0, (self.frame.size.width*0.33)-10, 50.0);
+    self.labelTotal.font = [UIFont systemFontOfSize:22];
+    self.labelTotal.textColor = [UIColor whiteColor];
+    self.labelTotal.shadowColor = [UIColor darkGrayColor];
+    self.labelTotal.shadowOffset = CGSizeMake(1, 1);
     self.labelTotal.backgroundColor = [UIColor clearColor];
     self.labelTotal.textAlignment = NSTextAlignmentRight;
     
@@ -73,7 +77,7 @@
 
 - (void) setupActions
 {
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleOpen)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleOpen:)];
     [self addGestureRecognizer:tapGesture];
     
 }
@@ -85,21 +89,30 @@
     self.labelCategory.text = [NSString stringWithFormat:@"%i", newSection];
 }
 
+-(void)toggleOpen:(id)sender
+{
+    [self toggleOpenWithUserAction:YES];
+}
 
--(void)toggleOpen
-{   
-    if (self.selected)
+-(void)toggleOpenWithUserAction:(BOOL)userAction
+{
+    self.selected = !self.selected;
+    
+    if (userAction)
     {
-        if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionOpened:)])
+        if (self.selected)
         {
-            [self.delegate sectionHeaderView:self sectionOpened:self.section];
+            if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionOpened:)])
+            {
+                [self.delegate sectionHeaderView:self sectionOpened:self.section];
+            }
         }
-    }
-    else
-    {
-        if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionClosed:)])
+        else
         {
-            [self.delegate sectionHeaderView:self sectionClosed:self.section];
+            if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionClosed:)])
+            {
+                [self.delegate sectionHeaderView:self sectionClosed:self.section];
+            }
         }
     }
 }

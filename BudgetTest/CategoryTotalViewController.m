@@ -13,12 +13,12 @@
 
 
 @interface CategoryTotalViewController ()
-@property (nonatomic, assign) NSInteger openSectionIndex;
-@property (nonatomic, assign) NSInteger previousOpenSectionIndex;
-@property (nonatomic, strong) NSMutableArray *categories;
-@property (nonatomic, strong) NSMutableArray *categoryItems;
-@property (nonatomic, strong) NSMutableArray *categoryTotals;
-@property (nonatomic, strong) NSMutableArray *categoriesOpen;
+@property (atomic, assign) NSInteger openSectionIndex;
+@property (atomic, strong) NSMutableArray *categories;
+@property (atomic, strong) NSMutableArray *categoryItems;
+@property (atomic, strong) NSMutableArray *categoryTotals;
+@property (atomic, strong) NSMutableArray *categoryHeaderView;
+@property (atomic, strong) NSMutableArray *categoriesOpen;
 @end
 
 
@@ -32,6 +32,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.openSectionIndex = NSNotFound;
     }
     return self;
 }
@@ -62,6 +63,8 @@
     self.categoryTotals = [[NSMutableArray alloc] init];
     self.categoryItems = [[NSMutableArray alloc] init];
     self.categoriesOpen = [[NSMutableArray alloc] init];
+    self.categoryHeaderView = [[NSMutableArray alloc] init];
+    
     CGFloat grandTotal = 0;
     
         
@@ -73,7 +76,7 @@
         NSArray *itemsForCategory = [self getItemsForCategory:[self.categories objectAtIndex:i]];
         CGFloat totalForCategory = [self getTotalForCategoryFromItems:itemsForCategory];
         
-        [self.categoriesOpen addObject:[NSNumber numberWithBool:(i==2)?YES:NO]];
+        [self.categoriesOpen addObject:[NSNumber numberWithBool:NO]];
         [self.categoryItems addObject:itemsForCategory];
         [self.categoryTotals addObject:[NSNumber numberWithFloat:totalForCategory]];
         grandTotal += totalForCategory;
@@ -83,6 +86,17 @@
     self.title = [NSString stringWithFormat:@"Total = $%0.2f", grandTotal];
     
     [self.tableView reloadData];
+}
+
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    self.openSectionIndex = NSNotFound;
+    self.categories = nil;
+    self.categoryItems = nil;
+    self.categoryTotals = nil;
+    self.categoryHeaderView = nil;
+    self.categoriesOpen = nil;
 }
 
 
@@ -228,6 +242,7 @@
     headerView.labelCategory.text = [NSString stringWithFormat:@"%@", [[self.categories objectAtIndex:section] valueForKey:@"name"]];
     headerView.labelTotal.text = [NSString stringWithFormat:@"$%0.2f", [[self.categoryTotals objectAtIndex:section] doubleValue]];
     
+    [self.categoryHeaderView setObject:headerView atIndexedSubscript:section];
     
     return headerView;
 }
@@ -262,6 +277,7 @@
  **********************************/
 -(void)sectionHeaderView:(CategorySectionHeaderView *)sectionHeaderView sectionOpened:(NSInteger)sectionOpened
 {
+    [self.categoriesOpen setObject:[NSNumber numberWithBool:YES] atIndexedSubscript:sectionOpened];
     
     /*
      Create an array containing the index paths of the rows to insert: These correspond to the rows for each quotation in the current section.
@@ -278,22 +294,27 @@
      */
     NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
     
-    self.previousOpenSectionIndex = self.openSectionIndex;
-    if (self.previousOpenSectionIndex != NSNotFound)
+    int previousOpenSectionIndex = self.openSectionIndex;
+    if (previousOpenSectionIndex != NSNotFound)
     {
-        [self.categoriesOpen setObject:[NSNumber numberWithBool:NO] atIndexedSubscript:self.previousOpenSectionIndex];
-        NSInteger countOfRowsToDelete = [[self.categoryItems objectAtIndex:self.previousOpenSectionIndex] count];
+        [self.categoriesOpen setObject:[NSNumber numberWithBool:NO] atIndexedSubscript:previousOpenSectionIndex];
+     
+        
+        
+        [[self.categoryHeaderView objectAtIndex:previousOpenSectionIndex] toggleOpenWithUserAction:NO];
+        
+        NSInteger countOfRowsToDelete = [[self.categoryItems objectAtIndex:previousOpenSectionIndex] count];
         
         for (NSInteger i = 0; i < countOfRowsToDelete; i++)
         {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:self.previousOpenSectionIndex]];
+            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:previousOpenSectionIndex]];
         }
     }
     
     // Style the animation so that there's a smooth flow in either direction.
     UITableViewRowAnimation insertAnimation;
     UITableViewRowAnimation deleteAnimation;
-    if (self.previousOpenSectionIndex == NSNotFound || sectionOpened < self.previousOpenSectionIndex) {
+    if (previousOpenSectionIndex == NSNotFound || sectionOpened < previousOpenSectionIndex) {
         insertAnimation = UITableViewRowAnimationTop;
         deleteAnimation = UITableViewRowAnimationBottom;
     }
@@ -301,6 +322,8 @@
         insertAnimation = UITableViewRowAnimationBottom;
         deleteAnimation = UITableViewRowAnimationTop;
     }
+    
+    
     
     // Apply the updates.
     [self.tableView beginUpdates];
