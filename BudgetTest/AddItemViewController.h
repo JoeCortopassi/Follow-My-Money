@@ -14,32 +14,36 @@
 
 @interface AddItemViewController : UIViewController <ItemDateDelegate,CategoryComboBoxDelegate>
 {
-    IBOutlet UILabel *titleLabel;
-    IBOutlet UITextField *date;
-    IBOutlet UITextField *amount;
-    IBOutlet UITextField *item;
-    IBOutlet UITextField *category;
+    UILabel *titleLabel;
+    UITextField *inputDate;
+    UITextField *inputAmount;
+    UITextField *inputItem;
+    UITextField *inputCategory;
     NSManagedObjectContext *managedObjectContext;
     NSManagedObject *budgetItem;
     ItemDateViewController *itemDateViewController;
     CategoryComboBoxController *categoryComboBoxController;
 }
 
-@property(retain) IBOutlet UILabel *titleLabel;
-@property(retain) IBOutlet UITextField *date;
-@property(retain) IBOutlet UITextField *amount;
-@property(retain) IBOutlet UITextField *item;
-@property(retain) IBOutlet UITextField *category;
+@property(retain) UILabel *titleLabel;
+@property(retain) UILabel *labelDate;
+@property(retain) UILabel *labelAmount;
+@property(retain) UILabel *labelItem;
+@property(retain) UILabel *labelCategory;
+@property(retain) UITextField *inputDate;
+@property(retain) UITextField *inputAmount;
+@property(retain) UITextField *inputItem;
+@property(retain) UITextField *inputCategory;
 @property(retain) NSManagedObjectContext *managedObjectContext;
 @property(retain) NSManagedObject *budgetItem;
 @property(retain) ItemDateViewController *itemDateViewController;
 @property(retain) CategoryComboBoxController *categoryComboBoxViewController;
 
 -(id)initWithBudgetItem:(BudgetItems *)newBudgetItem;
--(IBAction)saveBudgetItem;
--(IBAction)hideKeyboard;
+-(void)saveBudgetItem;
+-(void)hideKeyboard;
 -(void)setPickersDate:(NSDate *)newDate forField:(NSString *)newFieldToSet;
--(IBAction)showCategoryComboBox;
+-(void)showCategoryComboBox;
 -(void)setCategoryFromComboBox:(NSString *)string;
 
 @end

@@ -29,7 +29,6 @@
 		73738B24141482FF0015D6D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73738B22141482FF0015D6D7 /* InfoPlist.strings */; };
 		73738B27141482FF0015D6D7 /* BudgetTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B26141482FF0015D6D7 /* BudgetTestTests.m */; };
 		73738B36141489520015D6D7 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B34141489520015D6D7 /* AddItemViewController.m */; };
-		73738B37141489520015D6D7 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73738B35141489520015D6D7 /* AddItemViewController.xib */; };
 		73738B3B141489990015D6D7 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B39141489990015D6D7 /* ItemListViewController.m */; };
 		73738B3C141489990015D6D7 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73738B3A141489990015D6D7 /* ItemListViewController.xib */; };
 		73738B4F1415DE2F0015D6D7 /* ItemDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B4D1415DE2D0015D6D7 /* ItemDateViewController.m */; };
@@ -89,7 +88,6 @@
 		73738B26141482FF0015D6D7 /* BudgetTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BudgetTestTests.m; sourceTree = "<group>"; };
 		73738B33141489520015D6D7 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
 		73738B34141489520015D6D7 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
-		73738B35141489520015D6D7 /* AddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
 		73738B38141489990015D6D7 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		73738B39141489990015D6D7 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		73738B3A141489990015D6D7 /* ItemListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 			children = (
 				73738B33141489520015D6D7 /* AddItemViewController.h */,
 				73738B34141489520015D6D7 /* AddItemViewController.m */,
-				73738B35141489520015D6D7 /* AddItemViewController.xib */,
 				73AFC067141A572000AB9DBE /* Details */,
 			);
 			name = AddItem;
@@ -375,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73738B08141482FE0015D6D7 /* InfoPlist.strings in Resources */,
-				73738B37141489520015D6D7 /* AddItemViewController.xib in Resources */,
 				73738B3C141489990015D6D7 /* ItemListViewController.xib in Resources */,
 				73738B501415DE2F0015D6D7 /* ItemDateViewController.xib in Resources */,
 				73AFC06D141BCD4200AB9DBE /* CategoryComboBoxController.xib in Resources */,
@@ -532,13 +528,13 @@
 		73738B2B141482FF0015D6D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "Follow My Money";
-				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -547,13 +543,13 @@
 		73738B2C141482FF0015D6D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "Follow My Money";
-				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -625,14 +621,14 @@
 		73B20D9C1442B57B00A6904A /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: joseph cortopassi";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BudgetTest/BudgetTest-Prefix.pch";
 				INFOPLIST_FILE = "BudgetTest/BudgetTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "Follow My Money";
-				PROVISIONING_PROFILE = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8DCC62C-445B-431C-BC76-AF531A692FF3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

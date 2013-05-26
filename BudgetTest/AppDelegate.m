@@ -49,6 +49,7 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = tabBarViews;
+    self.tabBarController.view.frame = [[UIScreen mainScreen] applicationFrame];
     
     [self.window addSubview:self.tabBarController.view];
     [self.window makeKeyAndVisible];
