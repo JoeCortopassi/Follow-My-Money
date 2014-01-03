@@ -8,7 +8,8 @@
 
 #import "ItemListViewController.h"
 #import "Dates.h"
-#import "AddItemViewController.h"
+#import "AddedItemViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ItemListViewController
 
@@ -44,8 +45,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
+
     
 }
 
@@ -59,6 +62,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
     
     // Get all the 'BudgetItems'
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -198,6 +202,10 @@
     // Configure the cell...
     cell.textLabel.text = [NSString stringWithFormat:@"$%0.2f  -  %@", [[thisItem valueForKey:@"amount"] floatValue], [thisItem valueForKey:@"item"]];
     
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    
+    
     
     return cell;
 }
@@ -234,6 +242,45 @@
 }
 
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateFormat: @"M/d/Y"];
+    
+    NSString *sectionDate;
+    
+    if ([[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"date"] isKindOfClass:[NSString class]]) {
+        sectionDate = [[self.itemListByDatesInPeriod  objectAtIndex:section] valueForKey:@"date"];
+    } else {
+        sectionDate = [dateFormatter stringFromDate:[[self.itemListByDatesInPeriod  objectAtIndex:section] valueForKey:@"date"]];
+    }
+    
+    
+    NSString *sectionTitle = [NSString stringWithFormat:@"%@  -  $%0.2f", sectionDate, [[[self.itemListByDatesInPeriod objectAtIndex:section] valueForKey:@"total"] floatValue]];
+
+    
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    headerView.backgroundColor = [UIColor colorWithRed:133.00/255.00 green:194.00/255.00 blue:160.00/255.00 alpha:1.0];
+    headerView.layer.borderColor = [UIColor colorWithRed:(1.00/255.00) green:(131.00/255.00) blue:(37.00/255.00) alpha:0.65].CGColor;
+    headerView.layer.borderWidth = 1.0;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, tableView.bounds.size.width - 10, 18)];
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor grayColor];
+    label.shadowOffset = CGSizeMake(1, 1);
+    label.text = sectionTitle;
+    label.backgroundColor = [UIColor clearColor];
+    
+    [headerView addSubview:label];
+    
+    return headerView;
+}
+
+
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -262,7 +309,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    self.addItemViewController = [[AddItemViewController alloc] initWithBudgetItem:[[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row]];
+    self.addItemViewController = [[AddedItemViewController alloc] initWithBudgetItem:[[[self.itemListByDatesInPeriod objectAtIndex:indexPath.section] valueForKey:@"items"] objectAtIndex:indexPath.row]];
     self.addItemViewController.managedObjectContext = self.managedObjectContext;
     [self presentModalViewController:self.addItemViewController animated:YES];
 }

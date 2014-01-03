@@ -7,6 +7,7 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+<<<<<<< HEAD
          filePath = "BudgetTest/AddItemViewController.m"
          timestampString = "383257744.319929"
          startingColumnNumber = "9223372036854775807"
@@ -14,6 +15,15 @@
          startingLineNumber = "183"
          endingLineNumber = "183"
          landmarkName = "-viewDidLoad"
+=======
+         filePath = "BudgetTest/CategoryTotalViewController.m"
+         timestampString = "390759622.109302"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
+         landmarkName = "-viewWillAppear:"
+>>>>>>> 25e4b4f8a954462ed2545fa8098c4cbd96169d76
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

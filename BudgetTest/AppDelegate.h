@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class AddItemViewController;
+@class AddedItemViewController;
 @class ItemListViewController;
 @class CategoryTotalViewController;
 
@@ -16,13 +16,13 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property(retain) UITabBarController *tabBarController;
-@property(retain) UINavigationController *itemListNavigationController;
-@property(retain) UINavigationController *categoryTotalsNavigationController;
-@property(retain) UINavigationController *settingsNavigationController;
-@property(retain) AddItemViewController *addItemViewController;
-@property(retain) ItemListViewController *itemListViewController;
-@property(retain) CategoryTotalViewController *categoryTotalViewController;
+@property(nonatomic, strong) UITabBarController *tabBarController;
+@property(nonatomic, strong) UINavigationController *itemListNavigationController;
+@property(nonatomic, strong) UINavigationController *categoryTotalsNavigationController;
+@property(nonatomic, strong) UINavigationController *settingsNavigationController;
+@property(nonatomic, strong) AddedItemViewController *addItemViewController;
+@property(nonatomic, strong) ItemListViewController *itemListViewController;
+@property(nonatomic, strong) CategoryTotalViewController *categoryTotalViewController;
 
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

@@ -7,16 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategorySectionHeaderView.h"
 
-@interface CategoryTotalViewController : UITableViewController
+@interface CategoryTotalViewController : UITableViewController <SectionHeaderViewDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
-    NSMutableArray *categories;
-    NSMutableArray *categoryTotals;
-
 }
 
 @property(retain)NSManagedObjectContext *managedObjectContext;
-@property(retain)NSMutableArray *categories;
-@property(retain)NSMutableArray *categoryTotals;
 @end

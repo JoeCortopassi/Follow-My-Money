@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMMButton.h"
 
 @protocol ItemDateDelegate
 -(void)setPickersDate:(NSDate *)newDate forField:(NSString *)fieldToSet;
@@ -24,6 +25,7 @@
 @property(retain) NSDate *date;
 @property(retain) id <ItemDateDelegate> delegate;
 @property(retain) NSString *fieldToSet;
+@property (nonatomic, strong) FMMButton *buttonSet;
 
 -(IBAction)dateSelected;
 

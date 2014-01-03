@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMMInputField.h"
 
 @protocol CategoryComboBoxDelegate
 -(void)setCategoryFromComboBox:(NSString *)string;
@@ -15,7 +16,7 @@
 @interface CategoryComboBoxController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
     NSString *category_storage;
-    IBOutlet UITextField *input;
+    IBOutlet FMMInputField *input;
     IBOutlet UITableView *autoSuggest;
     NSMutableArray *autoSuggestList;
     
@@ -24,7 +25,7 @@
 }
 
 @property(retain) NSString *category_storage;
-@property(retain) IBOutlet UITextField *input;
+@property(retain) IBOutlet FMMInputField *input;
 @property(retain) IBOutlet UITableView *autoSuggest;
 @property(retain) NSMutableArray *autoSuggestList;
 

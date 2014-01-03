@@ -8,6 +8,7 @@
 
 #import "CategoryComboBoxController.h"
 
+
 @implementation CategoryComboBoxController
 
 @synthesize input, autoSuggest, autoSuggestList, category_storage;
@@ -96,8 +97,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    self.autoSuggest.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    
     [self.input becomeFirstResponder];
     self.input.text = self.category_storage;
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -149,7 +155,9 @@
     
     // Configure the cell...
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.autoSuggestList objectAtIndex:indexPath.row] name]];
-       
+    cell.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    
     return cell;
 }
 

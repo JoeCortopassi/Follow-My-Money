@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class Dates, AddItemViewController;
+@class Dates, AddedItemViewController;
 
 @interface ItemListViewController : UITableViewController
 {
@@ -17,7 +17,7 @@
     NSMutableArray *periodDates;
     NSMutableArray *itemListByDatesInPeriod;
     Dates *dates;
-    AddItemViewController *addItemViewController;
+    AddedItemViewController *addItemViewController;
 }
 
 @property(retain)NSManagedObjectContext *managedObjectContext;
@@ -25,6 +25,6 @@
 @property(retain)NSMutableArray *periodDates;
 @property(retain)NSMutableArray *itemListByDatesInPeriod;
 @property(retain)Dates *dates;
-@property(retain)AddItemViewController *addItemViewController;
+@property(retain)AddedItemViewController *addItemViewController;
 
 @end

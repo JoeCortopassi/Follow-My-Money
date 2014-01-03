@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "ItemDateViewController.h"
 #import "CHCSV.h"
+#import "FMMButton.h"
 
 @implementation SettingsViewController
 
@@ -19,6 +20,44 @@
 @synthesize period_interval;
 @synthesize period_interval_label;
 @synthesize periodStartDatePicker, backupFromDatePicker, backupToDatePicker;
+
+
+
+
+
+
+-(IBAction)openQuickConversions
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/quick-conversions/id595047250?mt=8"]];
+}
+
+
+-(IBAction)openSimpleKnot
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/simple-knot/id593421479?mt=8"]];
+}
+
+
+-(IBAction)openWebsite
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://joecortopassi.com"]];
+}
+
+
+-(IBAction)sendEmail
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.mailComposeDelegate = self;
+        [mailComposer setToRecipients:[NSArray arrayWithObject:@"followmymoney@joecortopassi.com"]];
+        [mailComposer setSubject:@"Feedback: 'Follow my Money'"];
+        [mailComposer setMessageBody:[NSString stringWithFormat:@"1. My favorite feature is...\n\n\n2. The one thing I wish would be better is...\n\n\n3. If I could have you add one feature, it would be...\n\n" ] isHTML:NO];
+        
+        [self presentModalViewController:mailComposer animated:YES];
+    }
+}
+
+
 
 
 -(void)setPickersDate:(NSDate *)newDate forField:(NSString *)newFieldToSet
@@ -52,9 +91,16 @@
 
 -(IBAction)setPeriodDefaults
 {
-    NSLog(@"asdf");
     [self.userDefaults setObject:self.period_start_date.text forKey:@"period_start_date"];
     [self.userDefaults setFloat:self.period_interval.value forKey:@"period_interval"];
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"Saved!"
+                          message: @"Your default budget period has been saved."
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
 }
 
 -(IBAction)pickBackupFromDate
@@ -196,11 +242,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    self.scrollView.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
+    
+    
+    self.navigationController.navigationBarHidden = YES;
+    self.scrollView.frame = [[UIScreen mainScreen] bounds];
     [scrollView setScrollEnabled:YES];
     [scrollView setContentSize:CGSizeMake(320,1200)];
 
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     // Do any additional setup after loading the view from its nib.
+    
+    [self setupButtonDefaultSave];
+    [self setupButtonBackupSend];
+    [self setupButtonEmail];
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -238,6 +295,37 @@
     self.backup_from_date.text = @"6/1/2011";
     self.backup_to_date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
 }
+
+
+- (void) setupButtonDefaultSave
+{
+    FMMButton *buttonSave = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 578.0, 72.0, 37.0)];
+    buttonSave.titleLabel.text = @"Save";
+    [buttonSave addTarget:self action:@selector(setPeriodDefaults) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonSave];
+}
+
+
+- (void) setupButtonBackupSend
+{
+    FMMButton *buttonSend = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 904.0, 72.0, 37.0)];
+    buttonSend.titleLabel.text = @"Send";
+    [buttonSend addTarget:self action:@selector(sendBackupEmail) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonSend];
+}
+
+
+- (void) setupButtonEmail
+{
+    FMMButton *buttonEmail = [[FMMButton alloc] initWithFrame:CGRectMake(50.0, 265.0, 220.0, 40.0)];
+    buttonEmail.titleLabel.text = @"Email";
+    [buttonEmail addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonEmail];
+}
+
 
 - (void)viewDidUnload
 {
