@@ -10,6 +10,7 @@
 #import "BudgetItems.h"
 #import "Dates.h"
 #import "Categories.h"
+#import "PieChartViewController.h"
 
 
 @interface CategoryTotalViewController ()
@@ -19,6 +20,7 @@
 @property (atomic, strong) NSMutableArray *categoryTotals;
 @property (atomic, strong) NSMutableArray *categoryHeaderView;
 @property (atomic, strong) NSMutableArray *categoriesOpen;
+@property (nonatomic, strong) PieChartViewController *viewPieChart;
 @end
 
 
@@ -45,6 +47,13 @@
     [super viewDidLoad];
 //    self.navigationController.navigationBarHidden = YES;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:0.5];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Graph"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(buttonGraphItem)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+//    self.navigationController.navigationItem.rightBarButtonItem = rightButton;
 }
 
 - (void)viewDidUnload
@@ -57,6 +66,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self setupStyle];
     
     
@@ -84,6 +94,15 @@
     
     
     self.title = [NSString stringWithFormat:@"Total = $%0.2f", grandTotal];
+    
+    if (grandTotal == 0)
+    {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    else
+    {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
     
     [self.tableView reloadData];
 }
@@ -192,7 +211,27 @@
 
 
 
-
+/****************************
+    Navigation Bar Actions
+ ****************************/
+- (void) buttonGraphItem
+{
+    NSMutableArray *arrayOfLabels = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayOfTotals = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<[self.categories count]; i++)
+    {
+        [arrayOfLabels addObject:[[self.categories objectAtIndex:i] valueForKey:@"name"]];
+        [arrayOfTotals addObject:[NSNumber numberWithFloat:[[self.categoryTotals objectAtIndex:i] doubleValue]]];
+    }
+    
+    
+    self.viewPieChart = [[PieChartViewController alloc] init];
+    self.viewPieChart.labelsForChart    = arrayOfLabels;
+    self.viewPieChart.dataForChart      = arrayOfTotals;
+    self.title = @"Total";
+    [self.navigationController pushViewController:self.viewPieChart animated:YES];
+}
 
 
 

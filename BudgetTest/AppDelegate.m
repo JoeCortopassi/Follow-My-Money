@@ -31,10 +31,9 @@
 {
     //configure iRate
 	[iRate sharedInstance].onlyPromptIfLatestVersion = NO;
-    [iRate sharedInstance].promptAgainForEachNewVersion = YES;
     [iRate sharedInstance].applicationName = @"Follow My Money";
-    [iRate sharedInstance].daysUntilPrompt = 7;
-    [iRate sharedInstance].usesUntilPrompt = 5;
+    [iRate sharedInstance].daysUntilPrompt = 0;
+    [iRate sharedInstance].usesUntilPrompt = 3;
     
     //enable preview mode
     //[iRate sharedInstance].previewMode = YES;

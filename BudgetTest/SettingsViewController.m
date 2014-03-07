@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "ItemDateViewController.h"
+#import "LegalViewController.h"
 #import "CHCSV.h"
 #import "FMMButton.h"
 
@@ -28,19 +29,19 @@
 
 -(IBAction)openQuickConversions
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/quick-conversions/id595047250?mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://joecortopassi.com/apps/app_store.php?from=follow_my_money&to=quick_conversions"]];
 }
 
 
 -(IBAction)openSimpleKnot
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/simple-knot/id593421479?mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://joecortopassi.com/apps/app_store.php?from=follow_my_money&to=simple_knot"]];
 }
 
 
 -(IBAction)openWebsite
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://joecortopassi.com"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://joecortopassi.com?appsource=followmymoney"]];
 }
 
 
@@ -258,6 +259,11 @@
     [self setupButtonDefaultSave];
     [self setupButtonBackupSend];
     [self setupButtonEmail];
+    [self setupButtonLicensesAndLegal];
+    
+    
+    self.period_interval.minimumTrackTintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:1.0];
+    
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -268,7 +274,7 @@
     if ( [self.userDefaults objectForKey:@"period_start_date"] != nil) {
         self.period_start_date.text = [NSString stringWithFormat:@"%@", [self.userDefaults objectForKey:@"period_start_date"]];
     } else {
-        self.period_start_date.text = @"6/1/2011";
+        self.period_start_date.text = @"1/1/2013";
     }
     
     
@@ -324,6 +330,23 @@
     [buttonEmail addTarget:self action:@selector(sendEmail) forControlEvents:UIControlEventTouchUpInside];
     
     [self.scrollView addSubview:buttonEmail];
+}
+
+
+- (void) setupButtonLicensesAndLegal
+{
+    FMMButton *buttonEmail = [[FMMButton alloc] initWithFrame:CGRectMake(0.0, (self.scrollView.contentSize.height - 120.0), self.scrollView.frame.size.width, 40.0)];
+    buttonEmail.titleLabel.text = @"Legal/Licenses";
+    [buttonEmail addTarget:self action:@selector(showViewLegal) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:buttonEmail];
+}
+
+
+-(void) showViewLegal
+{
+    LegalViewController *legalVC = [[LegalViewController alloc] init];
+    [self.navigationController pushViewController:legalVC animated:YES];
 }
 
 
