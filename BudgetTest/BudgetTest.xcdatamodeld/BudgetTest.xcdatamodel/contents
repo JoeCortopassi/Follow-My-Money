@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="864" systemVersion="10J869" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BudgetItems" representedClassName="BudgetItems">
-        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0"/>
-        <attribute name="date" optional="YES" attributeType="Date"/>
-        <attribute name="item" optional="YES" attributeType="String"/>
-        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Categories" inverseName="items" inverseEntity="Categories"/>
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0">
+            <userInfo/>
+        </attribute>
+        <attribute name="date" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="item" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Categories" inverseName="items" inverseEntity="Categories">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <entity name="Categories" representedClassName="Categories">
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BudgetItems" inverseName="category" inverseEntity="BudgetItems"/>
+        <attribute name="name" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BudgetItems" inverseName="category" inverseEntity="BudgetItems">
+            <userInfo/>
+        </relationship>
+        <userInfo/>
     </entity>
     <elements>
-        <element name="BudgetItems" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Categories" positionX="457" positionY="327" width="128" height="75"/>
+        <element name="BudgetItems" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Categories" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
