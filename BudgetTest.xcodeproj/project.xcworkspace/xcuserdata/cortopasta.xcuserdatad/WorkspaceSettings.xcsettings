@@ -5,10 +5,6 @@
 	<key>HasAskedToTakeAutomaticSnapshotBeforeSignificantChanges</key>
 	<true/>
 	<key>SnapshotAutomaticallyBeforeSignificantChanges</key>
-<<<<<<< HEAD
 	<false/>
-=======
-	<true/>
->>>>>>> 25e4b4f8a954462ed2545fa8098c4cbd96169d76
 </dict>
 </plist>

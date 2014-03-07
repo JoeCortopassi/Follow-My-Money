@@ -21,6 +21,8 @@
 		731F30C7141FA16C00E414FD /* CategoryTotalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 731F30C5141FA16C00E414FD /* CategoryTotalViewController.xib */; };
 		731F30CB14223F3400E414FD /* BudgetItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 731F30CA14223F3400E414FD /* BudgetItems.m */; };
 		731F30CE1422426C00E414FD /* Dates.m in Sources */ = {isa = PBXBuildFile; fileRef = 731F30CD1422426B00E414FD /* Dates.m */; };
+		7327435D18CA591600D3C418 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327435C18CA591600D3C418 /* libz.dylib */; };
+		7327435F18CA592800D3C418 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327435E18CA592800D3C418 /* SystemConfiguration.framework */; };
 		734061D01744892C00A8C98E /* AddedItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 734061CF1744892C00A8C98E /* AddedItemViewController.m */; };
 		73738AFE141482FE0015D6D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738AFD141482FE0015D6D7 /* UIKit.framework */; };
 		73738B00141482FE0015D6D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738AFF141482FE0015D6D7 /* Foundation.framework */; };
@@ -35,10 +37,6 @@
 		73738B1C141482FF0015D6D7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738B01141482FE0015D6D7 /* CoreData.framework */; };
 		73738B24141482FF0015D6D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73738B22141482FF0015D6D7 /* InfoPlist.strings */; };
 		73738B27141482FF0015D6D7 /* BudgetTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B26141482FF0015D6D7 /* BudgetTestTests.m */; };
-<<<<<<< HEAD
-		73738B36141489520015D6D7 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B34141489520015D6D7 /* AddItemViewController.m */; };
-=======
->>>>>>> 25e4b4f8a954462ed2545fa8098c4cbd96169d76
 		73738B3B141489990015D6D7 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B39141489990015D6D7 /* ItemListViewController.m */; };
 		73738B3C141489990015D6D7 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73738B3A141489990015D6D7 /* ItemListViewController.xib */; };
 		73738B4F1415DE2F0015D6D7 /* ItemDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73738B4D1415DE2D0015D6D7 /* ItemDateViewController.m */; };
@@ -183,6 +181,8 @@
 		731F30CA14223F3400E414FD /* BudgetItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetItems.m; sourceTree = "<group>"; };
 		731F30CC1422426B00E414FD /* Dates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dates.h; sourceTree = "<group>"; };
 		731F30CD1422426B00E414FD /* Dates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dates.m; sourceTree = "<group>"; };
+		7327435C18CA591600D3C418 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7327435E18CA592800D3C418 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		734061CE1744892C00A8C98E /* AddedItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddedItemViewController.h; sourceTree = "<group>"; };
 		734061CF1744892C00A8C98E /* AddedItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddedItemViewController.m; sourceTree = "<group>"; };
 		73738AF9141482FE0015D6D7 /* Follow My Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Follow My Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,11 +202,6 @@
 		73738B23141482FF0015D6D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73738B25141482FF0015D6D7 /* BudgetTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BudgetTestTests.h; sourceTree = "<group>"; };
 		73738B26141482FF0015D6D7 /* BudgetTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BudgetTestTests.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		73738B33141489520015D6D7 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
-		73738B34141489520015D6D7 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
-=======
->>>>>>> 25e4b4f8a954462ed2545fa8098c4cbd96169d76
 		73738B38141489990015D6D7 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		73738B39141489990015D6D7 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		73738B3A141489990015D6D7 /* ItemListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
@@ -262,6 +257,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7327435F18CA592800D3C418 /* SystemConfiguration.framework in Frameworks */,
+				7327435D18CA591600D3C418 /* libz.dylib in Frameworks */,
 				73B42F621748493F00E6DD23 /* CoreGraphics.framework in Frameworks */,
 				737B5460174832B90000C24E /* QuartzCore.framework in Frameworks */,
 				73E87B7118CA541800FAB48B /* libGoogleAnalyticsServices.a in Frameworks */,
@@ -470,6 +467,8 @@
 		73738AFC141482FE0015D6D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7327435E18CA592800D3C418 /* SystemConfiguration.framework */,
+				7327435C18CA591600D3C418 /* libz.dylib */,
 				73F4BADD143D4EC8007676BC /* MessageUI.framework */,
 				73738AFD141482FE0015D6D7 /* UIKit.framework */,
 				73738AFF141482FE0015D6D7 /* Foundation.framework */,
@@ -549,13 +548,8 @@
 		73AFC05D141876D800AB9DBE /* AddItem */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				73738B33141489520015D6D7 /* AddItemViewController.h */,
-				73738B34141489520015D6D7 /* AddItemViewController.m */,
-=======
 				734061CE1744892C00A8C98E /* AddedItemViewController.h */,
 				734061CF1744892C00A8C98E /* AddedItemViewController.m */,
->>>>>>> 25e4b4f8a954462ed2545fa8098c4cbd96169d76
 				73AFC067141A572000AB9DBE /* Details */,
 			);
 			name = AddItem;
