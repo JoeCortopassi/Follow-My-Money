@@ -29,6 +29,18 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[[GAIDictionaryBuilder createAppView]
+                    set:NSStringFromClass([self class])
+                    forKey:kGAIScreenName] build]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

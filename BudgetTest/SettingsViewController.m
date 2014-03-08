@@ -45,6 +45,12 @@
 }
 
 
+-(IBAction)openPrivacy
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://policy-portal.truste.com/core/privacy-policy/Joe-Cortopassi/7f906e01-9438-43e5-b124-9af8e2cbb2c6#landingPage"]];
+}
+
+
 -(IBAction)sendEmail
 {
     if ([MFMailComposeViewController canSendMail]) {
@@ -260,6 +266,7 @@
     [self setupButtonBackupSend];
     [self setupButtonEmail];
     [self setupButtonLicensesAndLegal];
+    [self setupButtonPrivacy];
     
     
     self.period_interval.minimumTrackTintColor = [UIColor colorWithRed:1.00/255.00 green:131.00/255.00 blue:37.00/255.00 alpha:1.0];
@@ -303,6 +310,18 @@
 }
 
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[[GAIDictionaryBuilder createAppView]
+                    set:NSStringFromClass([self class])
+                    forKey:kGAIScreenName] build]];
+}
+
+
 - (void) setupButtonDefaultSave
 {
     FMMButton *buttonSave = [[FMMButton alloc] initWithFrame:CGRectMake(228.0, 578.0, 72.0, 37.0)];
@@ -340,6 +359,16 @@
     [buttonEmail addTarget:self action:@selector(showViewLegal) forControlEvents:UIControlEventTouchUpInside];
     
     [self.scrollView addSubview:buttonEmail];
+}
+
+
+- (void) setupButtonPrivacy
+{
+    FMMButton *buttonPrivacy = [[FMMButton alloc] initWithFrame:CGRectMake(0.0, (self.scrollView.contentSize.height - 70.0), self.scrollView.frame.size.width, 40.0)];
+    buttonPrivacy.titleLabel.text = @"Privacy Policy";
+    [buttonPrivacy addTarget:self action:@selector(openPrivacy) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.scrollView addSubview:buttonPrivacy];
 }
 
 

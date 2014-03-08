@@ -23,6 +23,7 @@
 		731F30CE1422426C00E414FD /* Dates.m in Sources */ = {isa = PBXBuildFile; fileRef = 731F30CD1422426B00E414FD /* Dates.m */; };
 		7327435D18CA591600D3C418 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327435C18CA591600D3C418 /* libz.dylib */; };
 		7327435F18CA592800D3C418 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327435E18CA592800D3C418 /* SystemConfiguration.framework */; };
+		7327436118CA7D2900D3C418 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327436018CA7D2900D3C418 /* AdSupport.framework */; };
 		734061D01744892C00A8C98E /* AddedItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 734061CF1744892C00A8C98E /* AddedItemViewController.m */; };
 		73738AFE141482FE0015D6D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738AFD141482FE0015D6D7 /* UIKit.framework */; };
 		73738B00141482FE0015D6D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73738AFF141482FE0015D6D7 /* Foundation.framework */; };
@@ -183,6 +184,7 @@
 		731F30CD1422426B00E414FD /* Dates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dates.m; sourceTree = "<group>"; };
 		7327435C18CA591600D3C418 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7327435E18CA592800D3C418 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7327436018CA7D2900D3C418 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		734061CE1744892C00A8C98E /* AddedItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddedItemViewController.h; sourceTree = "<group>"; };
 		734061CF1744892C00A8C98E /* AddedItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddedItemViewController.m; sourceTree = "<group>"; };
 		73738AF9141482FE0015D6D7 /* Follow My Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Follow My Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7327436118CA7D2900D3C418 /* AdSupport.framework in Frameworks */,
 				7327435F18CA592800D3C418 /* SystemConfiguration.framework in Frameworks */,
 				7327435D18CA591600D3C418 /* libz.dylib in Frameworks */,
 				73B42F621748493F00E6DD23 /* CoreGraphics.framework in Frameworks */,
@@ -467,6 +470,7 @@
 		73738AFC141482FE0015D6D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7327436018CA7D2900D3C418 /* AdSupport.framework */,
 				7327435E18CA592800D3C418 /* SystemConfiguration.framework */,
 				7327435C18CA591600D3C418 /* libz.dylib */,
 				73F4BADD143D4EC8007676BC /* MessageUI.framework */,

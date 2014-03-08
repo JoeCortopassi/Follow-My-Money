@@ -119,6 +119,18 @@
 }
 
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[[GAIDictionaryBuilder createAppView]
+                    set:NSStringFromClass([self class])
+                    forKey:kGAIScreenName] build]];
+}
+
+
 - (void) setupStyle
 {
     self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:242.0/255.0 blue:233.0/255.0 alpha:1.0];
